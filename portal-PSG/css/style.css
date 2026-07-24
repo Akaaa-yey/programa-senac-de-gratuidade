@@ -237,7 +237,38 @@ body {
     font-size: 0.9rem;
     opacity: 0.8;
 }
+/* ================= CABEÇALHO DE EDITAIS (PADRÃO VISUAL) ================= */
 
+.editais-header-box {
+    margin-bottom: 30px;
+}
+
+.editais-main-title {
+    color: #fb923c; /* Laranja padrão do design */
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Traço vertical laranja idêntico ao da ficha de inscrição */
+.editais-main-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 24px;
+    background-color: #fb923c;
+    border-radius: 2px;
+}
+
+.editais-subtitle {
+    color: var(--senac-blue, #1e3a8a); /* Tom azulado combinando com o design */
+    font-size: 1rem;
+    font-weight: 500;
+    max-width: 700px;
+}
 /* ================= FILTROS DE BUSCA ================= */
 .filter-container {
     background: var(--bg-white);
@@ -578,4 +609,96 @@ footer p {
     .filter-selects { flex-direction: column; }
     .nav-links { display: none; }
     .enrolled-card { flex-direction: column; align-items: flex-start; gap: 15px; }
+}
+/* ================= FICHA DE INSCRIÇÃO DESIGN (FIGMA) ================= */
+.ficha-card {
+    background: var(--bg-white);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.ficha-main-title {
+    color: var(--senac-orange);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ficha-main-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 24px;
+    background-color: var(--senac-orange);
+    border-radius: 2px;
+}
+
+.ficha-section-label {
+    color: var(--senac-orange);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.ficha-field {
+    margin-bottom: 15px;
+}
+
+.ficha-field label {
+    display: block;
+    color: var(--senac-blue);
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.ficha-field input,
+.ficha-field select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #f4f5f7;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.ficha-field input:focus,
+.ficha-field select:focus {
+    border-color: var(--senac-blue);
+    background-color: #fff;
+}
+
+.ficha-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.ficha-checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--senac-orange);
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.ficha-checkbox-item input[type="checkbox"] {
+    accent-color: var(--senac-orange);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
 }
