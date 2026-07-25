@@ -238,15 +238,36 @@ body {
     opacity: 0.8;
 }
 /* ================= CABEÇALHO DE EDITAIS (PADRÃO VISUAL) ================= */
+/* ================= BANNER DA PÁGINA DE EDITAIS ================= */
+.editais-banner-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
 
+.editais-banner-img {
+    display: block;
+    width: 100%;
+    max-width: 820px;     /* reduzido — ajuste esse valor até o tamanho que preferir */
+    height: auto;
+    margin: 0 auto 20px;
+    border-radius: var(--radius);
+}
+@media (max-width: 1000px) {
+    .editais-banner-img {
+        height: 1500px;
+    }
+}
 .editais-header-box {
     margin-bottom: 30px;
 }
 
 .editais-main-title {
     color: #fb923c; /* Laranja padrão do design */
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 2.8rem;
+    font-weight: 600;
     margin-bottom: 8px;
     display: flex;
     align-items: center;
@@ -257,8 +278,8 @@ body {
 .editais-main-title::before {
     content: '';
     display: inline-block;
-    width: 4px;
-    height: 24px;
+    width: 5px;
+    height: 35px;
     background-color: #fb923c;
     border-radius: 2px;
 }
@@ -610,95 +631,144 @@ footer p {
     .nav-links { display: none; }
     .enrolled-card { flex-direction: column; align-items: flex-start; gap: 15px; }
 }
-/* ================= FICHA DE INSCRIÇÃO DESIGN (FIGMA) ================= */
-.ficha-card {
-    background: var(--bg-white);
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-    max-width: 750px;
-    margin: 0 auto;
-}
-
-.ficha-main-title {
+/* ================= FICHA DE INSCRIÇÃO V2 (NOVO DESIGN) ================= */
+.inscricao-page-title {
+    text-align: center;
     color: var(--senac-orange);
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 30px;
+    margin: 10px 0 30px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    justify-content: center;
+    gap: 12px;
 }
 
-.ficha-main-title::before {
+.inscricao-page-title::before {
     content: '';
     display: inline-block;
     width: 4px;
-    height: 24px;
+    height: 38px;
     background-color: var(--senac-orange);
     border-radius: 2px;
 }
 
-.ficha-section-label {
-    color: var(--senac-orange);
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-top: 25px;
-    margin-bottom: 15px;
+.ficha-card-v2 {
+    position: relative;
+    background: var(--bg-white);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 40px 60px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
 }
 
-.ficha-field {
-    margin-bottom: 15px;
-}
-
-.ficha-field label {
-    display: block;
+.ficha-section-title {
     color: var(--senac-blue);
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.ficha-card-v2 .ficha-section-title:not(:first-child) {
+    margin-top: 30px;
+}
+
+.ficha-grid {
+    display: grid;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.ficha-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.ficha-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.ficha-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.ficha-grid .span-2 { grid-column: span 2; }
+
+.ficha-field-v2 label {
+    display: block;
+    color: var(--senac-orange);
+    font-size: 0.85rem;
+    font-weight: 600;
     margin-bottom: 6px;
 }
 
-.ficha-field input,
-.ficha-field select {
+.ficha-field-v2 input,
+.ficha-field-v2 select {
     width: 100%;
-    padding: 12px 15px;
-    background-color: #f4f5f7;
-    border: 1px solid #e2e8f0;
-    border-radius: var(--radius);
-    font-size: 1rem;
+    padding: 10px 12px;
+    background: var(--bg-white);
+    border: 1.5px solid var(--senac-orange);
+    border-radius: 6px;
+    font-size: 0.95rem;
     color: var(--text-dark);
     outline: none;
-    transition: border-color 0.3s;
 }
 
-.ficha-field input:focus,
-.ficha-field select:focus {
+.ficha-field-v2 input:focus,
+.ficha-field-v2 select:focus {
     border-color: var(--senac-blue);
-    background-color: #fff;
 }
 
-.ficha-checkboxes {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+.ficha-link-note {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--senac-blue);
+    text-decoration: underline;
 }
 
-.ficha-checkbox-item {
-    display: flex;
+.ficha-submit-wrapper {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-finalizar {
+    background-color: var(--senac-orange);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 24px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    color: var(--senac-orange);
-    font-weight: 500;
-    cursor: pointer;
-    font-size: 0.95rem;
+    gap: 8px;
+    transition: background 0.3s;
 }
 
-.ficha-checkbox-item input[type="checkbox"] {
-    accent-color: var(--senac-orange);
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+.btn-finalizar:hover {
+    background-color: var(--senac-orange-hover);
+}
+
+.ficha-ilustracao {
+    position: absolute;
+   right: 500px;
+    bottom: 0;
+    height: 430px;
+    width: auto;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.ficha-shape-decorativa {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 180px;
+    height: 60px;
+    background: var(--senac-orange);
+    clip-path: polygon(0 100%, 0 0, 70% 0, 100% 100%);
+    z-index: 0;
+}
+
+@media (max-width: 768px) {
+    .ficha-grid.cols-3,
+    .ficha-grid.cols-4 { grid-template-columns: 1fr; }
+    .ficha-grid .span-2 { grid-column: span 1; }
+    .ficha-ilustracao { display: none; }
 }

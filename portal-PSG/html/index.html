@@ -64,11 +64,16 @@
         </section>
 
         <!-- EDITAIS DISPONÍVEIS -->
+
         <section id="editais" class="section-view">
-            <div class="editais-header-box">
-                <h2 class="editais-main-title">Editais e Vagas disponíveis</h2>
-                <p class="editais-subtitle">Consulte os editais abertos, requisitos e o quantitativo de vagas para os cursos gratuitos.</p>
-            </div>
+            <div class="editais-banner-wrapper">
+    <img src="/portal-PSG/img/Programa de gratuitade.png" alt="Banner Editais Senac" class="editais-banner-img">
+
+    <div class="editais-header-box">
+        <h2 class="editais-main-title">Editais e Vagas disponíveis</h2>
+        <p class="editais-subtitle">Consulte os editais abertos, requisitos e o quantitativo de vagas para os cursos gratuitos.</p>
+    </div>
+</div>
 
             <div class="filter-container">
                 <div class="search-input-box">
@@ -273,111 +278,82 @@
 
         <!-- INSCRIÇÃO E CÁLCULO DE RENDA -->
         <section id="inscricao" class="section-view">
-            <div class="ficha-card">
-                <h2 class="ficha-main-title">Ficha de Inscrição</h2>
+    <h2 class="inscricao-page-title">Ficha de Inscrição</h2>
+<img src="/portal-PSG/img/ilustracao-inscricao.png" alt="Ilustração de duas pessoas preenchendo formulário" class="ficha-ilustracao">
+    <div class="ficha-card-v2">
+        <form onsubmit="event.preventDefault(); alert('Inscrição cadastrada com sucesso!');">
 
-                <form onsubmit="event.preventDefault(); alert('Inscrição cadastrada com sucesso!');">
-                    
-                    <!-- Seção Curso -->
-                    <div class="ficha-section-label">Curso</div>
-                    
-                    <div class="ficha-field">
-                        <label>Curso</label>
-                        <select required>
-                            <option value="">Selecione o curso</option>
-                            <option value="desenvolvimento">Técnico em Desenvolvimento de Sistemas</option>
-                            <option value="rh">Assistente de Recursos Humanos</option>
-                            <option value="cozinheiro">Cozinheiro Profissional</option>
-                        </select>
-                    </div>
+            <h3 class="ficha-section-title">Dados pessoais</h3>
 
-                    <div class="ficha-field">
-                        <label>Modalidade</label>
-                        <select required>
-                            <option value="">Selecione a modalidade</option>
-                            <option value="presencial">Presencial</option>
-                            <option value="ead">EAD</option>
-                            <option value="hibrido">Híbrido</option>
-                        </select>
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>Carga horária</label>
-                        <select required>
-                            <option value="">Selecione a carga horária</option>
-                            <option value="1200h">1200h (Técnico)</option>
-                            <option value="500h">500h (Qualificação)</option>
-                            <option value="160h">160h (Aperfeiçoamento)</option>
-                        </select>
-                    </div>
-
-                    <!-- Seção Dados do participante -->
-                    <div class="ficha-section-label">Dados do participante</div>
-
-                    <div class="ficha-field">
-                        <label>Nome completo</label>
-                        <input type="text" required placeholder="Digite seu nome completo">
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>CPF</label>
-                        <input type="text" required placeholder="000.000.000-00">
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>Data de nascimento</label>
-                        <input type="date" required>
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>E-mail</label>
-                        <input type="email" required placeholder="seu@email.com">
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>Telefone</label>
-                        <input type="text" required placeholder="(00) 00000-0000">
-                    </div>
-
-                    <!-- Seção Deficiência / Condição (Estilo do design) -->
-                    <div class="ficha-section-label">Condição / Acessibilidade</div>
-                    <div class="ficha-checkboxes">
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="nenhuma"> Não possuo</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="visual"> Deficiência visual</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="auditiva"> Deficiência auditiva</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="fisica"> Deficiência física</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="tea"> Transtorno do Espectro Autista (TEA)</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="outro"> Outro</label>
-                    </div>
-
-                    <!-- Seção Cálculo de Renda (Integrado perfeitamente no design) -->
-                    <div class="ficha-section-label">Cálculo de Renda Familiar (PSG)</div>
-                    <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px;">O programa exige renda familiar mensal per capita de até 2 salários mínimos.</p>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div class="ficha-field" style="margin-bottom: 0;">
-                            <label>Renda Total da Família (R$)</label>
-                            <input type="number" id="rendaTotal" placeholder="Ex: 3000">
-                        </div>
-                        <div class="ficha-field" style="margin-bottom: 0;">
-                            <label>Nº de Pessoas</label>
-                            <input type="number" id="numPessoas" placeholder="Ex: 4">
-                        </div>
-                    </div>
-                    <div style="margin-top: 12px; margin-bottom: 20px;">
-                        <button type="button" class="btn-secondary" onclick="calcularRenda()">Calcular Renda Per Capita</button>
-                        <div id="resultadoRenda" style="margin-top: 10px; font-weight: 600; font-size: 0.9rem;"></div>
-                    </div>
-
-                    <!-- Botão Cadastrar igual ao design -->
-                    <div style="margin-top: 30px;">
-                        <button type="submit" class="btn-primary btn-full btn-lg">Cadastrar</button>
-                    </div>
-
-                </form>
+            <div class="ficha-grid cols-3">
+                <div class="ficha-field-v2">
+                    <label>Nome completo</label>
+                    <input type="text" required placeholder="Digite seu nome completo">
+                </div>
+                <div class="ficha-field-v2">
+                    <label>CPF</label>
+                    <input type="text" required placeholder="000.000.000-00">
+                </div>
+                <div class="ficha-field-v2">
+                    <label>Data de nascimento</label>
+                    <input type="date" required>
+                </div>
             </div>
-        </section>
 
+            <div class="ficha-grid cols-4">
+                <div class="ficha-field-v2 span-2">
+                    <label>Email</label>
+                    <input type="email" required placeholder="seu@email.com">
+                </div>
+                <div class="ficha-field-v2">
+                    <label>Celular</label>
+                    <input type="text" required placeholder="(00) 00000-0000">
+                </div>
+                <div class="ficha-field-v2">
+                    <label>Escolaridade</label>
+                    <select required>
+                        <option value="">Selecione</option>
+                        <option value="fundamental">Ensino Fundamental</option>
+                        <option value="medio">Ensino Médio</option>
+                        <option value="superior">Ensino Superior</option>
+                    </select>
+                </div>
+                <div class="ficha-field-v2">
+                    <label>Deficiência</label>
+                    <select>
+                        <option value="nenhuma">Não possuo</option>
+                        <option value="visual">Visual</option>
+                        <option value="auditiva">Auditiva</option>
+                        <option value="fisica">Física</option>
+                        <option value="tea">TEA</option>
+                        <option value="outro">Outro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="ficha-grid cols-2">
+                <div class="ficha-field-v2">
+                    <label>Renda familiar</label>
+                    <input type="number" id="rendaTotal" placeholder="Ex: 3000">
+                    <a href="#" class="ficha-link-note">Não sabe a renda familiar?</a>
+                    
+                </div>
+
+                
+                <div class="ficha-field-v2">
+                    <label>Quantas pessoas moram na casa?</label>
+                    <input type="number" id="numPessoas" placeholder="Ex: 4">
+                </div>
+            </div>
+
+            <h3 class="ficha-section-title">Inscrição para o curso</h3>
+
+            <div class="ficha-grid cols-3">
+                <div class="ficha-field-v2">
+                    <label>Curso</label>
+                    <select required>
+                        <option value="">Selecione o curso</option>
+                        <option value="desenvolvimento">Técnico em
     </main>
 
     <!-- RODAPÉ -->
