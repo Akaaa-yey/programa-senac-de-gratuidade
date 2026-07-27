@@ -1,476 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Livre Senac - PSG</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Programa Senac de Gratuidade</title>
+
     <link rel="stylesheet" href="/portal-PSG/css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=I,030nter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- CABEÇALHO -->
-    <header class="navbar">
-        <div class="container nav-content">
-            <div class="logo">
-                Portal <span class="highlight">Livre</span> <span class="psg-tag">PSG</span>
+    <!--================ HEADER ================-->
+
+  <header class="navbar">
+
+    <div class="container">
+
+        <a href="#" class="logo">
+            <img src="/portal-PSG/assets/Logo_Senac.png" alt="Logo Senac">
+        </a>
+
+        <nav class="menu">
+
+            <a href="#">Início</a>
+
+            <a href="#">Editais</a>
+
+            <a href="#">Inscreva-se</a>
+
+            <a href="#">Teste de carreira</a>
+
+        </nav>
+
+    </div>
+
+  </header>
+
+
+    <!--================ BANNER ================-->
+
+  <section class="banner-home">
+
+    <img src="/portal-PSG/assets/HomePage 1.svg"
+         class="banner-img"
+         alt="Banner">
+
+    <a href="editais.html" class="btn-banner">
+        Acompanhe os editais →
+    </a>
+
+</section>
+
+<section class="regras">
+
+    <div class="container regras-container">
+
+        <div class="regras-esquerda">
+
+            <h2>
+
+                <span></span>
+
+                Confira as regras do programa
+
+            </h2>
+
+            <div class="card-regra">
+
+                <div class="numero">1</div>
+
+                <p>Ter renda máxima de 2 salários mínimos por família.</p>
+
             </div>
-            <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-target="home">Início</a></li>
-                <li><a href="#" class="nav-link" data-target="editais">Editais Disponíveis</a></li>
-                <li><a href="#" class="nav-link" data-target="teste-carreira">Teste de Carreira</a></li>
-                <li><a href="#" class="nav-link" data-target="inscricao">Inscrição</a></li>
-            </ul>
+
+            <div class="card-regra">
+
+                <div class="numero">2</div>
+
+                <p>Ter a documentação necessária para a inscrição.</p>
+
+            </div>
+
+            <div class="card-regra">
+
+                <div class="numero">3</div>
+
+                <p>Estar disponível nos dias e horários das aulas.</p>
+
+            </div>
+
+            <div class="card-regra">
+
+                <div class="numero">4</div>
+
+                <p>Não ter abandonado um curso como bolsista nos últimos 6 meses.</p>
+
+            </div>
+
+            <div class="card-regra">
+
+                <div class="numero">5</div>
+
+                <p>Fazer até dois cursos por vez.</p>
+
+            </div>
+
         </div>
-    </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="container">
+        <div class="regras-direita">
 
-        
-        <!-- HOME / INÍCIO -->
-        <section id="home" class="section-view active">
-            <div class="hero">
-                <div class="hero-content">
-                    <span class="badge">Programa Senac de Gratuidade</span>
-                    <div class="hero-text">
-                        <h1>Transforme seu futuro com <span>Educação Profissional Gratuita</span></h1>
-                        <p>O Portal Livre oferece cursos de excelência com vagas 100% gratuitas para você se qualificar e conquistar seu espaço no mercado de trabalho.</p>
-                        <div class="hero-actions">
-                            <button class="btn-primary btn-lg" onclick="switchSection('editais')">Ver Editais Disponíveis</button>
-                            <button class="btn-secondary btn-lg" onclick="switchSection('teste-carreira')">Fazer Teste de Carreira</button>
-                        </div>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat-box">
-                            <i class="fas fa-graduation-cap"></i>
-                            <h3>100%</h3>
-                            <p>Gratuito (PSG)</p>
-                        </div>
-                        <div class="stat-box">
-                            <i class="fas fa-users"></i>
-                            <h3>Diversas</h3>
-                            <p>Vagas abertas</p>
-                        </div>
-                        <div class="stat-box">
-                            <i class="fas fa-briefcase"></i>
-                            <h3>Alta</h3>
-                            <p>Empregabilidade</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+            <img src="/portal-PSG/assets/MulherLupaHome.svg" alt="Mulher com lupa">
 
-        <!-- EDITAIS DISPONÍVEIS -->
-        <section id="editais" class="section-view">
-            <div class="editais-header-box">
-                <h2 class="editais-main-title">Editais e Vagas disponíveis</h2>
-                <p class="editais-subtitle">Consulte os editais abertos, requisitos e o quantitativo de vagas para os cursos gratuitos.</p>
-            </div>
-
-            <div class="filter-container">
-                <div class="search-input-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchEdital" placeholder="Buscar por edital ou curso...">
-                </div>
-                <div class="filter-selects">
-                    <select id="filterArea">
-                        <option value="">Todas as Áreas</option>
-                        <option value="tecnologia">Tecnologia da Informação</option>
-                        <option value="gestao">Gestão e Negócios</option>
-                        <option value="gastronomia">Gastronomia</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="courses-grid">
-                <!-- Edital Card 1 -->
-                <div class="course-card">
-                    <div class="course-header">
-                        <span>Edital Nº 01/2026</span>
-                        <span class="course-tag">Tecnologia</span>
-                    </div>
-                    <div class="course-body">
-                        <h3 class="course-title">Técnico em Desenvolvimento de Sistemas</h3>
-                        <div class="course-info">
-                            <span><i class="fas fa-calendar-alt"></i> Inscrições: Até 15/03/2026</span>
-                            <span><i class="fas fa-clock"></i> Carga Horária: 1200h</span>
-                            <span><i class="fas fa-laptop"></i> Modalidade: Presencial</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Unidade Centro</span>
-                        </div>
-                    </div>
-                    <div class="course-footer">
-                        <span class="vagas-tag"><i class="fas fa-chair"></i> 40 Vagas Disponíveis</span>
-                        <button class="btn-primary" onclick="switchSection('inscricao')">Inscrever-se</button>
-                    </div>
-                </div>
-
-                <!-- Edital Card 2 -->
-                <div class="course-card">
-                    <div class="course-header">
-                        <span>Edital Nº 02/2026</span>
-                        <span class="course-tag">Gestão</span>
-                    </div>
-                    <div class="course-body">
-                        <h3 class="course-title">Assistente de Recursos Humanos</h3>
-                        <div class="course-info">
-                            <span><i class="fas fa-calendar-alt"></i> Inscrições: Até 20/03/2026</span>
-                            <span><i class="fas fa-clock"></i> Carga Horária: 160h</span>
-                            <span><i class="fas fa-laptop"></i> Modalidade: EAD</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Unidade Norte</span>
-                        </div>
-                    </div>
-                    <div class="course-footer">
-                        <span class="vagas-tag"><i class="fas fa-chair"></i> 25 Vagas Disponíveis</span>
-                        <button class="btn-primary" onclick="switchSection('inscricao')">Inscrever-se</button>
-                    </div>
-                </div>
-
-                <!-- Edital Card 3 -->
-                <div class="course-card">
-                    <div class="course-header">
-                        <span>Edital Nº 03/2026</span>
-                        <span class="course-tag">Gastronomia</span>
-                    </div>
-                    <div class="course-body">
-                        <h3 class="course-title">Cozinheiro Profissional</h3>
-                        <div class="course-info">
-                            <span><i class="fas fa-calendar-alt"></i> Inscrições: Até 25/03/2026</span>
-                            <span><i class="fas fa-clock"></i> Carga Horária: 500h</span>
-                            <span><i class="fas fa-laptop"></i> Modalidade: Presencial</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Unidade Gourmet</span>
-                        </div>
-                    </div>
-                    <div class="course-footer">
-                        <span class="vagas-tag"><i class="fas fa-chair"></i> 30 Vagas Disponíveis</span>
-                        <button class="btn-primary" onclick="switchSection('inscricao')">Inscrever-se</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TESTE DE CARREIRA -->
-        <section id="teste-carreira" class="section-view">
-            <div class="section-header">
-                <h2>Teste de Orientação Profissional</h2>
-                <p>Responda às questões abaixo com atenção para descobrir qual área de atuação mais combina com o seu perfil profissional.</p>
-            </div>
-            <div style="background: var(--bg-white); padding: 35px; border-radius: var(--radius); box-shadow: var(--shadow); max-width: 850px; margin: 0 auto;">
-                <form id="formCarreira" onsubmit="event.preventDefault(); calcularTesteCarreira();">
-                    
-                    <!-- Pergunta 1 -->
-                    <div style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">1. O que você mais gosta de fazer no seu dia a dia profissional?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p1" value="tec" required> Resolver problemas lógicos e usar tecnologia</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p1" value="gestao"> Organizar equipes, planejar e negociar</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p1" value="gastronomia"> Criar pratos, cozinhar e explorar sabores</label>
-                        </div>
-                    </div>
-
-                    <!-- Pergunta 2 -->
-                    <div style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">2. Como você prefere resolver problemas complexos?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p2" value="tec" required> Análise lógica, testes e engenharia de dados</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p2" value="gestao"> Planejamento estratégico e reuniões de alinhamento</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p2" value="gastronomia"> Prática manual, testes de receitas e improvisação criativa</label>
-                        </div>
-                    </div>
-
-                    <!-- Pergunta 3 -->
-                    <div style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">3. Em um ambiente de trabalho, qual papel você assume naturalmente?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p3" value="tec" required> O especialista técnico que resolve bugs e sistemas</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p3" value="gestao"> O líder ou coordenador de projetos e pessoas</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p3" value="gastronomia"> O executor focado na qualidade operacional e produção</label>
-                        </div>
-                    </div>
-
-                    <!-- Pergunta 4 -->
-                    <div style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">4. Qual tipo de ambiente de trabalho mais te motiva?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p4" value="tec" required> Escritório moderno ou remoto com foco em inovação digital</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p4" value="gestao"> Salas de reunião corporativas e centros administrativos</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p4" value="gastronomia"> Cozinhas profissionais, confeitarias ou laboratórios culinários</label>
-                        </div>
-                    </div>
-
-                    <!-- Pergunta 5 -->
-                    <div style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">5. Como você lida com prazos apertados e pressão?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p5" value="tec" required> Automatizando processos e focando na linha de código</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p5" value="gestao"> Reorganizando cronogramas e prioridades da equipe</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p5" value="gastronomia"> Mantendo o ritmo acelerado de produção com precisão prática</label>
-                        </div>
-                    </div>
-
-                    <!-- Pergunta 6 -->
-                    <div style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">6. Qual destas atividades você faria por horas sem notar o tempo passar?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p6" value="tec" required> Desenvolver softwares ou estruturar bancos de dados</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p6" value="gestao"> Analisar planilhas financeiras e planejar estratégias</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p6" value="gastronomia"> Experimentar receitas, cortes e combinações de ingredientes</label>
-                        </div>
-                    </div>
-
-                    <!-- Pergunta 7 -->
-                    <div style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">7. O que você considera mais gratificante em um projeto concluído?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p7" value="tec" required> Ver um sistema ou aplicativo rodando perfeitamente sem erros</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p7" value="gestao"> Ver metas de desempenho superadas e equipes engajadas</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p7" value="gastronomia"> Ver clientes ou convidados satisfeitos com o prato servido</label>
-                        </div>
-                    </div>
-
-                    <!-- Pergunta 8 -->
-                    <div style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">8. Como você prefere adquirir novos conhecimentos e habilidades?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p8" value="tec" required> Cursos de programação, redes, lógica ou inteligência artificial</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p8" value="gestao"> Cursos de liderança, administração, finanças ou recursos humanos</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p8" value="gastronomia"> Aulas práticas de culinária, confeitaria e segurança alimentar</label>
-                        </div>
-                    </div>
-
-                    <!-- Pergunta 9 -->
-                    <div style="margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 20px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">9. Qual ferramenta ou recurso profissional mais atrai sua atenção?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p9" value="tec" required> Ambientes de desenvolvimento de software e IDEs</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p9" value="gestao"> Softwares de gestão empresarial (ERP) e indicadores de KPI</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p9" value="gastronomia"> Utensílios de alta performance e ingredientes sofisticados</label>
-                        </div>
-                    </div>
-
-                    <!-- Pergunta 10 -->
-                    <div style="margin-bottom: 25px;">
-                        <p style="font-weight: 600; font-size: 1.05rem; margin-bottom: 12px; color: var(--senac-blue);">10. Qual o seu principal objetivo profissional a longo prazo?</p>
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p10" value="tec" required> Ser um especialista ou arquiteto de soluções em tecnologia</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p10" value="gestao"> Tornar-se executivo, gestor ou abrir um negócio próprio</label>
-                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;"><input type="radio" name="p10" value="gastronomia"> Consolidar-se como Chef renomado ou empreender no setor de alimentos</label>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-primary btn-lg btn-full">Ver Resultado do Teste</button>
-                </form>
-
-                <div id="resultadoTeste" style="margin-top: 25px; display: none; text-align: center; padding: 20px; background: #f0fdf4; border-radius: var(--radius); border: 1px solid #bbf7d0;">
-                    <h3 style="color: var(--success-color); margin-bottom: 10px;">Resultado da Orientação Profissional</h3>
-                    <p id="textoResultado" style="font-size: 1.1rem; margin-bottom: 15px;"></p>
-                    <button class="btn-primary" onclick="switchSection('editais')">Ver Editais para esta Área</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- INSCRIÇÃO E CÁLCULO DE RENDA -->
-        <section id="inscricao" class="section-view">
-            <div class="ficha-card">
-                <h2 class="ficha-main-title">Ficha de Inscrição</h2>
-
-                <form onsubmit="event.preventDefault(); alert('Inscrição cadastrada com sucesso!');">
-                    
-                    <!-- Seção Curso -->
-                    <div class="ficha-section-label">Curso</div>
-                    
-                    <div class="ficha-field">
-                        <label>Curso</label>
-                        <select required>
-                            <option value="">Selecione o curso</option>
-                            <option value="desenvolvimento">Técnico em Desenvolvimento de Sistemas</option>
-                            <option value="rh">Assistente de Recursos Humanos</option>
-                            <option value="cozinheiro">Cozinheiro Profissional</option>
-                        </select>
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>Modalidade</label>
-                        <select required>
-                            <option value="">Selecione a modalidade</option>
-                            <option value="presencial">Presencial</option>
-                            <option value="ead">EAD</option>
-                            <option value="hibrido">Híbrido</option>
-                        </select>
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>Carga horária</label>
-                        <select required>
-                            <option value="">Selecione a carga horária</option>
-                            <option value="1200h">1200h (Técnico)</option>
-                            <option value="500h">500h (Qualificação)</option>
-                            <option value="160h">160h (Aperfeiçoamento)</option>
-                        </select>
-                    </div>
-
-                    <!-- Seção Dados do participante -->
-                    <div class="ficha-section-label">Dados do participante</div>
-
-                    <div class="ficha-field">
-                        <label>Nome completo</label>
-                        <input type="text" required placeholder="Digite seu nome completo">
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>CPF</label>
-                        <input type="text" required placeholder="000.000.000-00">
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>Data de nascimento</label>
-                        <input type="date" required>
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>E-mail</label>
-                        <input type="email" required placeholder="seu@email.com">
-                    </div>
-
-                    <div class="ficha-field">
-                        <label>Telefone</label>
-                        <input type="text" required placeholder="(00) 00000-0000">
-                    </div>
-
-                    <!-- Seção Deficiência / Condição (Estilo do design) -->
-                    <div class="ficha-section-label">Condição / Acessibilidade</div>
-                    <div class="ficha-checkboxes">
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="nenhuma"> Não possuo</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="visual"> Deficiência visual</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="auditiva"> Deficiência auditiva</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="fisica"> Deficiência física</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="tea"> Transtorno do Espectro Autista (TEA)</label>
-                        <label class="ficha-checkbox-item"><input type="checkbox" name="def" value="outro"> Outro</label>
-                    </div>
-
-                    <!-- Seção Cálculo de Renda (Integrado perfeitamente no design) -->
-                    <div class="ficha-section-label">Cálculo de Renda Familiar (PSG)</div>
-                    <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 12px;">O programa exige renda familiar mensal per capita de até 2 salários mínimos.</p>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div class="ficha-field" style="margin-bottom: 0;">
-                            <label>Renda Total da Família (R$)</label>
-                            <input type="number" id="rendaTotal" placeholder="Ex: 3000">
-                        </div>
-                        <div class="ficha-field" style="margin-bottom: 0;">
-                            <label>Nº de Pessoas</label>
-                            <input type="number" id="numPessoas" placeholder="Ex: 4">
-                        </div>
-                    </div>
-                    <div style="margin-top: 12px; margin-bottom: 20px;">
-                        <button type="button" class="btn-secondary" onclick="calcularRenda()">Calcular Renda Per Capita</button>
-                        <div id="resultadoRenda" style="margin-top: 10px; font-weight: 600; font-size: 0.9rem;"></div>
-                    </div>
-
-                    <!-- Botão Cadastrar igual ao design -->
-                    <div style="margin-top: 30px;">
-                        <button type="submit" class="btn-primary btn-full btn-lg">Cadastrar</button>
-                    </div>
-
-                </form>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- RODAPÉ -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Portal Livre Senac. Todos os direitos reservados.</p>
-            <p>Programa Senac de Gratuidade - PSG</p>
         </div>
-    </footer>
 
-    <!-- SCRIPT DE NAVEGAÇÃO E CÁLCULO -->
-    <script>
-        function switchSection(targetId) {
-            document.querySelectorAll('.section-view').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            document.getElementById(targetId).classList.add('active');
-            const activeLink = document.querySelector(`.nav-link[data-target="${targetId}"]`);
-            if (activeLink) activeLink.classList.add('active');
-            window.scrollTo(0, 0);
-        }
+    </div>
 
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = link.getAttribute('data-target');
-                switchSection(target);
-            });
-        });
+    <section class="etapas">
 
-        function toggleDeficiencia() {
-            const val = document.getElementById('possuiDeficiencia').value;
-            const box = document.getElementById('qualDeficienciaBox');
-            if (val === 'sim') {
-                box.style.display = 'flex';
-            } else {
-                box.style.display = 'none';
-            }
-        }
+    <div class="container">
 
-        function calcularTesteCarreira() {
-            const form = document.getElementById('formCarreira');
-            const formData = new FormData(form);
-            
-            let counts = { tec: 0, gestao: 0, gastronomia: 0 };
-            
-            for (let value of formData.values()) {
-                if (counts[value] !== undefined) {
-                    counts[value]++;
-                }
-            }
+        <h2>Etapas de inscrição</h2>
 
-            let maxArea = 'tec';
-            let maxVal = counts.tec;
-            if (counts.gestao > maxVal) { maxArea = 'gestao'; maxVal = counts.gestao; }
-            if (counts.gastronomia > maxVal) { maxArea = 'gastronomia'; maxVal = counts.gastronomia; }
+        <div class="linha-etapas">
 
-            const resBox = document.getElementById('resultadoTeste');
-            const resText = document.getElementById('textoResultado');
-            
-            let areaNome = "";
-            if (maxArea === 'tec') areaNome = "Tecnologia da Informação (ex: Técnico em Desenvolvimento de Sistemas)";
-            else if (maxArea === 'gestao') areaNome = "Gestão e Negócios (ex: Assistente de Recursos Humanos)";
-            else areaNome = "Gastronomia (ex: Cozinheiro Profissional)";
+            <div class="etapa">
 
-            resText.innerHTML = `Com base nas suas respostas, seu perfil é altamente compatível com a área de <strong>${areaNome}</strong>!`;
-            resBox.style.display = 'block';
-            resBox.scrollIntoView({ behavior: 'smooth' });
-        }
+                <div class="circulo">1</div>
 
-        function calcularRenda() {
-            const renda = parseFloat(document.getElementById('rendaTotal').value);
-            const pessoas = parseInt(document.getElementById('numPessoas').value);
-            const resDiv = document.getElementById('resultadoRenda');
+                <p>
+                    Escolha o curso e a unidade
+                    para solicitar a bolsa
+                </p>
 
-            if (!renda || !pessoas || pessoas <= 0) {
-                resDiv.innerHTML = "<span style='color: var(--danger-color);'>Por favor, preencha a renda e o número de pessoas corretamente.</span>";
-                return;
-            }
+            </div>
 
-            const perCapita = renda / pessoas;
-            const limiteDoisSalarios = 3004.00; 
+            <div class="barra"></div>
 
-            if (perCapita <= (limiteDoisSalarios / 2)) {
-                resDiv.innerHTML = `<span style='color: var(--success-color);'>Renda per capita: R$ ${perCapita.toFixed(2)}. Parabéns! Você atende ao critério de renda do PSG.</span>`;
-            } else {
-                resDiv.innerHTML = `<span style='color: var(--danger-color);'>Renda per capita: R$ ${perCapita.toFixed(2)}. Atenção: A renda excede o limite estipulado pelo edital.</span>`;
-            }
-        }
-    </script>
+            <div class="etapa">
+
+                <div class="circulo">2</div>
+
+                <p>
+                    Selecione as informações
+                    do curso
+                </p>
+
+            </div>
+
+            <div class="barra"></div>
+
+            <div class="etapa">
+
+                <div class="circulo">3</div>
+
+                <p>
+                    Verifique a disponibilidade
+                    e inscreva-se
+                </p>
+
+            </div>
+
+            <div class="barra"></div>
+
+            <div class="etapa">
+
+                <div class="circulo">4</div>
+
+                <p>
+                    Fique atento ao e-mail
+                    cadastrado
+                </p>
+
+            </div>
+
+            <div class="barra"></div>
+
+            <div class="etapa">
+
+                <div class="circulo">5</div>
+
+                <p>
+                    Aguarde a confirmação
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <img
+        src="assets/onda-derretendo.svg"
+        class="onda-divisoria"
+        alt="">
+
+
+</section>
+
+
+    <script src="/portal-PSG/js/script.js"></script>
+
 </body>
+
 </html>
+
