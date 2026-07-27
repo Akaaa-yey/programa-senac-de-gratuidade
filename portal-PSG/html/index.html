@@ -64,97 +64,96 @@
         </section>
 
         <!-- EDITAIS DISPONÍVEIS -->
-
-        <section id="editais" class="section-view">
-            <div class="editais-banner-wrapper">
-    <img src="/portal-PSG/img/Programa de gratuitade.png" alt="Banner Editais Senac" class="editais-banner-img">
-
-    <div class="editais-header-box">
-        <h2 class="editais-main-title">Editais e Vagas disponíveis</h2>
-        <p class="editais-subtitle">Consulte os editais abertos, requisitos e o quantitativo de vagas para os cursos gratuitos.</p>
+<section id="editais" class="section-view">
+    
+    <div class="editais-banner-wrapper">
+        <img src="/portal-PSG/img/Programa de gratuitade.png" alt="Banner Editais Senac" class="editais-banner-img">
+        <div class="editais-header-box">
+            <h2 class="editais-main-title">Editais e Vagas disponíveis</h2>
+            <p class="editais-subtitle">Consulte os editais abertos, requisitos e o quantitativo de vagas para os cursos gratuitos.</p>
+        </div>
     </div>
-</div>
 
-            <div class="filter-container">
-                <div class="search-input-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchEdital" placeholder="Buscar por edital ou curso...">
-                </div>
-                <div class="filter-selects">
-                    <select id="filterArea">
-                        <option value="">Todas as Áreas</option>
-                        <option value="tecnologia">Tecnologia da Informação</option>
-                        <option value="gestao">Gestão e Negócios</option>
-                        <option value="gastronomia">Gastronomia</option>
-                    </select>
+    <div class="filter-container">
+        <div class="search-input-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchEdital" placeholder="Buscar por edital ou curso...">
+        </div>
+        <div class="filter-selects">
+            <select id="filterArea">
+                <option value="">Todas as Áreas</option>
+                <option value="tecnologia">Tecnologia da Informação</option>
+                <option value="gestao">Gestão e Negócios</option>
+                <option value="gastronomia">Gastronomia</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="courses-grid">
+        <!-- Edital Card 1 -->
+        <div class="course-card">
+            <div class="course-header">
+                <span>Edital Nº 01/2026</span>
+                <span class="course-tag">Tecnologia</span>
+            </div>
+            <div class="course-body">
+                <h3 class="course-title">Técnico em Desenvolvimento de Sistemas</h3>
+                <div class="course-info">
+                    <span><i class="fas fa-calendar-alt"></i> Inscrições até 15/03/2026</span>
+                    <span><i class="fas fa-clock"></i> Carga Horária: 1200h</span>
+                    <span><i class="fas fa-laptop"></i> Presencial</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Unidade Centro</span>
                 </div>
             </div>
+            <div class="course-footer">
+                <span class="vagas-tag"><i class="fas fa-chair"></i> 40 Vagas</span>
+                <button class="btn-primary" onclick="switchSection('inscricao')">Inscrever-se</button>
+            </div>
+        </div>
 
-            <div class="courses-grid">
-                <!-- Edital Card 1 -->
-                <div class="course-card">
-                    <div class="course-header">
-                        <span>Edital Nº 01/2026</span>
-                        <span class="course-tag">Tecnologia</span>
-                    </div>
-                    <div class="course-body">
-                        <h3 class="course-title">Técnico em Desenvolvimento de Sistemas</h3>
-                        <div class="course-info">
-                            <span><i class="fas fa-calendar-alt"></i> Inscrições: Até 15/03/2026</span>
-                            <span><i class="fas fa-clock"></i> Carga Horária: 1200h</span>
-                            <span><i class="fas fa-laptop"></i> Modalidade: Presencial</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Unidade Centro</span>
-                        </div>
-                    </div>
-                    <div class="course-footer">
-                        <span class="vagas-tag"><i class="fas fa-chair"></i> 40 Vagas Disponíveis</span>
-                        <button class="btn-primary" onclick="switchSection('inscricao')">Inscrever-se</button>
-                    </div>
-                </div>
-
-                <!-- Edital Card 2 -->
-                <div class="course-card">
-                    <div class="course-header">
-                        <span>Edital Nº 02/2026</span>
-                        <span class="course-tag">Gestão</span>
-                    </div>
-                    <div class="course-body">
-                        <h3 class="course-title">Assistente de Recursos Humanos</h3>
-                        <div class="course-info">
-                            <span><i class="fas fa-calendar-alt"></i> Inscrições: Até 20/03/2026</span>
-                            <span><i class="fas fa-clock"></i> Carga Horária: 160h</span>
-                            <span><i class="fas fa-laptop"></i> Modalidade: EAD</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Unidade Norte</span>
-                        </div>
-                    </div>
-                    <div class="course-footer">
-                        <span class="vagas-tag"><i class="fas fa-chair"></i> 25 Vagas Disponíveis</span>
-                        <button class="btn-primary" onclick="switchSection('inscricao')">Inscrever-se</button>
-                    </div>
-                </div>
-
-                <!-- Edital Card 3 -->
-                <div class="course-card">
-                    <div class="course-header">
-                        <span>Edital Nº 03/2026</span>
-                        <span class="course-tag">Gastronomia</span>
-                    </div>
-                    <div class="course-body">
-                        <h3 class="course-title">Cozinheiro Profissional</h3>
-                        <div class="course-info">
-                            <span><i class="fas fa-calendar-alt"></i> Inscrições: Até 25/03/2026</span>
-                            <span><i class="fas fa-clock"></i> Carga Horária: 500h</span>
-                            <span><i class="fas fa-laptop"></i> Modalidade: Presencial</span>
-                            <span><i class="fas fa-map-marker-alt"></i> Unidade Gourmet</span>
-                        </div>
-                    </div>
-                    <div class="course-footer">
-                        <span class="vagas-tag"><i class="fas fa-chair"></i> 30 Vagas Disponíveis</span>
-                        <button class="btn-primary" onclick="switchSection('inscricao')">Inscrever-se</button>
-                    </div>
+        <!-- Edital Card 2 -->
+        <div class="course-card">
+            <div class="course-header">
+                <span>Edital Nº 02/2026</span>
+                <span class="course-tag">Gestão</span>
+            </div>
+            <div class="course-body">
+                <h3 class="course-title">Assistente de Recursos Humanos</h3>
+                <div class="course-info">
+                    <span><i class="fas fa-calendar-alt"></i> Inscrições até 20/03/2026</span>
+                    <span><i class="fas fa-clock"></i> Carga Horária: 160h</span>
+                    <span><i class="fas fa-laptop"></i> Modalidade EAD</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Unidade Norte</span>
                 </div>
             </div>
-        </section>
+            <div class="course-footer">
+                <span class="vagas-tag"><i class="fas fa-chair"></i> 25 Vagas</span>
+                <button class="btn-primary" onclick="switchSection('inscricao')">Inscrever-se</button>
+            </div>
+        </div>
+
+        <!-- Edital Card 3 -->
+        <div class="course-card">
+            <div class="course-header">
+                <span>Edital Nº 03/2026</span>
+                <span class="course-tag">Gastronomia</span>
+            </div>
+            <div class="course-body">
+                <h3 class="course-title">Cozinheiro Profissional</h3>
+                <div class="course-info">
+                    <span><i class="fas fa-calendar-alt"></i> Inscrições até 25/03/2026</span>
+                    <span><i class="fas fa-clock"></i> Carga Horária: 500h</span>
+                    <span><i class="fas fa-laptop"></i> Presencial</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Unidade Gourmet</span>
+                </div>
+            </div>
+            <div class="course-footer">
+                <span class="vagas-tag"><i class="fas fa-chair"></i> 30 Vagas</span>
+                <button class="btn-primary" onclick="switchSection('inscricao')">Inscrever-se</button>
+            </div>
+        </div>
+    </div>
+</section>
 
         <!-- TESTE DE CARREIRA -->
         <section id="teste-carreira" class="section-view">
@@ -276,85 +275,99 @@
             </div>
         </section>
 
-        <!-- INSCRIÇÃO E CÁLCULO DE RENDA -->
+       <!-- INSCRIÇÃO E CÁLCULO DE RENDA -->
         <section id="inscricao" class="section-view">
-    <h2 class="inscricao-page-title">Ficha de Inscrição</h2>
-<img src="/portal-PSG/img/ilustracao-inscricao.png" alt="Ilustração de duas pessoas preenchendo formulário" class="ficha-ilustracao">
-    <div class="ficha-card-v2">
-        <form onsubmit="event.preventDefault(); alert('Inscrição cadastrada com sucesso!');">
+            <h2 class="inscricao-page-title">Ficha de Inscrição</h2>
+            <img src="/portal-PSG/img/ilustracao-inscricao.png" alt="Ilustração de duas pessoas preenchendo formulário" class="ficha-ilustracao">
+            
+            <div class="ficha-card-v2">
+                <form onsubmit="event.preventDefault(); alert('Inscrição cadastrada com sucesso!');">
 
-            <h3 class="ficha-section-title">Dados pessoais</h3>
+                    <h3 class="ficha-section-title">Dados pessoais</h3>
 
-            <div class="ficha-grid cols-3">
-                <div class="ficha-field-v2">
-                    <label>Nome completo</label>
-                    <input type="text" required placeholder="Digite seu nome completo">
-                </div>
-                <div class="ficha-field-v2">
-                    <label>CPF</label>
-                    <input type="text" required placeholder="000.000.000-00">
-                </div>
-                <div class="ficha-field-v2">
-                    <label>Data de nascimento</label>
-                    <input type="date" required>
-                </div>
+                    <div class="ficha-grid cols-3">
+                        <div class="ficha-field-v2">
+                            <label>Nome completo</label>
+                            <input type="text" required placeholder="Digite seu nome completo">
+                        </div>
+                        <div class="ficha-field-v2">
+                            <label>CPF</label>
+                            <input type="text" required placeholder="000.000.000-00">
+                        </div>
+                        <div class="ficha-field-v2">
+                            <label>Data de nascimento</label>
+                            <input type="date" required>
+                        </div>
+                    </div>
+
+                    <div class="ficha-grid cols-4">
+                        <div class="ficha-field-v2 span-2">
+                            <label>Email</label>
+                            <input type="email" required placeholder="seu@email.com">
+                        </div>
+                        <div class="ficha-field-v2">
+                            <label>Celular</label>
+                            <input type="text" required placeholder="(00) 00000-0000">
+                        </div>
+                        <div class="ficha-field-v2">
+                            <label>Escolaridade</label>
+                            <select required>
+                                <option value="">Selecione</option>
+                                <option value="fundamental">Ensino Fundamental</option>
+                                <option value="medio">Ensino Médio</option>
+                                <option value="superior">Ensino Superior</option>
+                            </select>
+                        </div>
+                        <div class="ficha-field-v2">
+                            <label>Deficiência</label>
+                            <select>
+                                <option value="nenhuma">Não possuo</option>
+                                <option value="visual">Visual</option>
+                                <option value="auditiva">Auditiva</option>
+                                <option value="fisica">Física</option>
+                                <option value="tea">TEA</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ficha-grid cols-2">
+                        <div class="ficha-field-v2">
+                            <label>Renda familiar</label>
+                            <input type="number" id="rendaTotal" placeholder="Ex: 3000" onblur="calcularRenda()">
+                            <a href="#" class="ficha-link-note">Não sabe a renda familiar?</a>
+                            <div id="resultadoRenda" style="margin-top: 8px; font-weight: 500; font-size: 0.9rem;"></div>
+                        </div>
+
+                        <div class="ficha-field-v2">
+                            <label>Quantas pessoas moram na casa?</label>
+                            <input type="number" id="numPessoas" placeholder="Ex: 4" onblur="calcularRenda()">
+                        </div>
+                    </div>
+
+                    <h3 class="ficha-section-title">Inscrição para o curso</h3>
+
+                    <div class="ficha-grid cols-3">
+                        <div class="ficha-field-v2 span-3">
+                            <label>Curso</label>
+                            <select required>
+                                <option value="">Selecione o curso</option>
+                                <option value="desenvolvimento">Técnico em Desenvolvimento de Sistemas</option>
+                                <option value="gestao">Assistente de Recursos Humanos</option>
+                                <option value="gastronomia">Cozinheiro Profissional</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- BOTÃO DE CONFIRMAR INSCRIÇÃO ADICIONADO AQUI -->
+                    <div style="margin-top: 30px;">
+                        <button type="submit" class="btn-primary btn-lg btn-full">Confirmar Inscrição</button>
+                    </div>
+
+                </form>
             </div>
-
-            <div class="ficha-grid cols-4">
-                <div class="ficha-field-v2 span-2">
-                    <label>Email</label>
-                    <input type="email" required placeholder="seu@email.com">
-                </div>
-                <div class="ficha-field-v2">
-                    <label>Celular</label>
-                    <input type="text" required placeholder="(00) 00000-0000">
-                </div>
-                <div class="ficha-field-v2">
-                    <label>Escolaridade</label>
-                    <select required>
-                        <option value="">Selecione</option>
-                        <option value="fundamental">Ensino Fundamental</option>
-                        <option value="medio">Ensino Médio</option>
-                        <option value="superior">Ensino Superior</option>
-                    </select>
-                </div>
-                <div class="ficha-field-v2">
-                    <label>Deficiência</label>
-                    <select>
-                        <option value="nenhuma">Não possuo</option>
-                        <option value="visual">Visual</option>
-                        <option value="auditiva">Auditiva</option>
-                        <option value="fisica">Física</option>
-                        <option value="tea">TEA</option>
-                        <option value="outro">Outro</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="ficha-grid cols-2">
-                <div class="ficha-field-v2">
-                    <label>Renda familiar</label>
-                    <input type="number" id="rendaTotal" placeholder="Ex: 3000">
-                    <a href="#" class="ficha-link-note">Não sabe a renda familiar?</a>
-                    
-                </div>
-
-                
-                <div class="ficha-field-v2">
-                    <label>Quantas pessoas moram na casa?</label>
-                    <input type="number" id="numPessoas" placeholder="Ex: 4">
-                </div>
-            </div>
-
-            <h3 class="ficha-section-title">Inscrição para o curso</h3>
-
-            <div class="ficha-grid cols-3">
-                <div class="ficha-field-v2">
-                    <label>Curso</label>
-                    <select required>
-                        <option value="">Selecione o curso</option>
-                        <option value="desenvolvimento">Técnico em
-    </main>
+        </section>
+        <!-- FIM DA SEÇÃO DE INSCRIÇÃO -->
 
     <!-- RODAPÉ -->
     <footer>
