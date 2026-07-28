@@ -1,311 +1,166 @@
-/* ================= BANCO DE DADOS SIMULADO ================= */
+/* ================= BANCO DE DADOS DE EDITAIS ================= */
 const cursosPSG = [
     {
         id: 1,
-        titulo: "Técnico em Enfermagem",
-        cidade: "Recife",
-        categoria: "Saúde",
-        unidade: "Senac Paulista / Recife",
-        modalidade: "Presencial - Manhã",
+        edital: "Edital Nº 01/2026",
+        titulo: "Técnico em Desenvolvimento de Sistemas",
+        area: "tecnologia",
+        tag: "Tecnologia",
+        inscricoes: "Inscrições até 15/03/2026",
         cargaHoraria: "1200h",
-        vagas: 15,
-        requisito: "Ensino Médio Completo"
+        modalidade: "Presencial",
+        unidade: "Unidade Centro",
+        vagas: 40
     },
     {
         id: 2,
-        titulo: "Desenvolvedor Web Full Stack",
-        cidade: "Recife",
-        categoria: "Tecnologia",
-        unidade: "Porto Digital / Recife",
-        modalidade: "Remoto (Ao Vivo) - Noite",
-        cargaHoraria: "400h",
-        vagas: 25,
-        requisito: "Ensino Médio Cursando ou Completo"
+        edital: "Edital Nº 02/2026",
+        titulo: "Assistente de Recursos Humanos",
+        area: "gestao",
+        tag: "Gestão",
+        inscricoes: "Inscrições até 20/03/2026",
+        cargaHoraria: "160h",
+        modalidade: "Modalidade EAD",
+        unidade: "Unidade Norte",
+        vagas: 25
     },
     {
         id: 3,
+        edital: "Edital Nº 03/2026",
         titulo: "Cozinheiro Profissional",
-        cidade: "Caruaru",
-        categoria: "Gastronomia",
-        unidade: "Senac Caruaru",
-        modalidade: "Presencial - Tarde",
-        cargaHoraria: "800h",
-        vagas: 10,
-        requisito: "Ensino Fundamental Completo"
-    },
-    {
-        id: 4,
-        titulo: "Cabeleireiro e Estética",
-        cidade: "Petrolina",
-        categoria: "Beleza",
-        unidade: "Senac Petrolina",
-        modalidade: "Presencial - Tarde",
-        cargaHoraria: "400h",
-        vagas: 12,
-        requisito: "Ensino Fundamental Completo"
-    },
-    {
-        id: 5,
-        titulo: "Assistente Administrativo",
-        cidade: "Garanhuns",
-        categoria: "Gestão",
-        unidade: "Senac Garanhuns",
-        modalidade: "Presencial - Noite",
-        cargaHoraria: "160h",
-        vagas: 30,
-        requisito: "Ensino Médio Incompleto"
-    },
-    {
-        id: 6,
-        titulo: "Análise de Dados com Python",
-        cidade: "Recife",
-        categoria: "Tecnologia",
-        unidade: "Senac Recife - Central",
-        modalidade: "EAD / Online",
-        cargaHoraria: "200h",
-        vagas: 40,
-        requisito: "Ensino Médio Completo"
-    },
-    {
-        id: 7,
-        titulo: "Confeiteiro Avançado",
-        cidade: "Paulista",
-        categoria: "Gastronomia",
-        unidade: "Senac Paulista",
-        modalidade: "Presencial - Manhã",
-        cargaHoraria: "300h",
-        vagas: 8,
-        requisito: "Maior de 18 anos"
+        area: "gastronomia",
+        tag: "Gastronomia",
+        inscricoes: "Inscrições até 25/03/2026",
+        cargaHoraria: "500h",
+        modalidade: "Presencial",
+        unidade: "Unidade Gourmet",
+        vagas: 30
     }
 ];
 
-/* ================= ESTADO DO SISTEMA ================= */
-let usuarioLogado = null;
-let inscricoesUsuario = [];
-let cursoSelecionadoParaInscricao = null;
-
-/* ================= INICIALIZAÇÃO ================= */
+/* ================= INICIALIZAÇÃO DE PÁGINAS ================= */
 document.addEventListener('DOMContentLoaded', () => {
-    renderizarCursos(cursosPSG);
-    atualizarNavbar();
+    // Se estiver na página de editais, renderiza o grid
+    const gridCursos = document.getElementById('gridCursos');
+    if (gridCursos) {
+        renderizarCursos(cursosPSG);
+        configurarFiltros();
+    }
 });
 
-/* ================= NAVEGAÇÃO ENTRE SEÇÕES ================= */
-function mostrarSecao(secaoId) {
-    document.querySelectorAll('.section-view').forEach(sec => sec.classList.remove('active'));
+/* ================= RENDERIZAÇÃO E FILTRO DE CURSOS ================= */
+function renderizarCursos(lista) {
+    const grid = document.getElementById('gridCursos');
+    if (!grid) return;
     
-    const secaoAlvo = document.getElementById(`sec-${secaoId}`);
-    if (secaoAlvo) {
-        secaoAlvo.classList.add('active');
-    }
-    
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-/* ================= RENDERIZAÇÃO DE CURSOS ================= */
-function renderizarCursos(listaCursos) {
-    const grid = document.getElementById('grid-cursos');
     grid.innerHTML = '';
 
-    if (listaCursos.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-light); padding: 40px;">
-            Nenhum curso encontrado para os filtros selecionados.
-        </p>`;
+    if (lista.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-light); padding: 40px;">Nenhum edital encontrado para os filtros selecionados.</p>`;
         return;
     }
 
-    listaCursos.forEach(curso => {
+    lista.forEach(curso => {
         const card = document.createElement('div');
         card.className = 'course-card';
         card.innerHTML = `
             <div class="course-header">
-                <span><i class="fa-solid fa-location-dot"></i> ${curso.cidade}</span>
-                <span class="course-tag">${curso.categoria}</span>
+                <span>${curso.edital}</span>
+                <span class="course-tag">${curso.tag}</span>
             </div>
             <div class="course-body">
                 <h3 class="course-title">${curso.titulo}</h3>
                 <div class="course-info">
-                    <span><i class="fa-solid fa-building"></i> ${curso.unidade}</span>
-                    <span><i class="fa-solid fa-clock"></i> ${curso.modalidade} (${curso.cargaHoraria})</span>
-                    <span><i class="fa-solid fa-check-double"></i> Requisito: ${curso.requisito}</span>
+                    <span><i class="fas fa-calendar-alt"></i> ${curso.inscricoes}</span>
+                    <span><i class="fas fa-clock"></i> Carga Horária: ${curso.cargaHoraria}</span>
+                    <span><i class="fas fa-laptop"></i> ${curso.modalidade}</span>
+                    <span><i class="fas fa-map-marker-alt"></i> ${curso.unidade}</span>
                 </div>
             </div>
             <div class="course-footer">
-                <span class="vagas-tag"><i class="fa-solid fa-user-check"></i> ${curso.vagas} vagas</span>
-                <button class="btn-primary" onclick="iniciarInscricao(${curso.id})">Inscrever-se</button>
+                <span class="vagas-tag"><i class="fas fa-chair"></i> ${curso.vagas} Vagas</span>
+                <a href="inscricao.html" class="btn-primary">Inscrever-se</a>
             </div>
         `;
         grid.appendChild(card);
     });
 }
 
-/* ================= FILTRAGEM ================= */
-function filtrarCursos() {
-    const termoBusca = document.getElementById('inputBusca').value.toLowerCase();
-    const cidade = document.getElementById('filtroCidade').value;
-    const categoria = document.getElementById('filtroCategoria').value;
+function configurarFiltros() {
+    const searchInput = document.getElementById('searchEdital');
+    const filterArea = document.getElementById('filterArea');
 
-    const filtrados = cursosPSG.filter(curso => {
-        const bateBusca = curso.titulo.toLowerCase().includes(termoBusca);
-        const bateCidade = cidade === 'todos' || curso.cidade === cidade;
-        const bateCategoria = categoria === 'todos' || curso.categoria === categoria;
+    const aplicarFiltros = () => {
+        const termo = searchInput.value.toLowerCase();
+        const area = filterArea.value;
 
-        return bateBusca && bateCidade && bateCategoria;
-    });
+        const filtrados = cursosPSG.filter(curso => {
+            const bateTermo = curso.titulo.toLowerCase().includes(termo) || curso.edital.toLowerCase().includes(termo);
+            const bateArea = area === '' || curso.area === area;
+            return bateTermo && bateArea;
+        });
 
-    renderizarCursos(filtrados);
-}
-
-/* ================= CONTROLE DE MODAIS ================= */
-function abrirModal(modalId) {
-    document.getElementById(modalId).style.display = 'flex';
-}
-
-function fecharModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-}
-
-function trocarModal(fecharId, abrirId) {
-    fecharModal(fecharId);
-    abrirModal(abrirId);
-}
-
-/* ================= AUTENTICAÇÃO E CADASTRO ================= */
-function realizarCadastro(event) {
-    event.preventDefault();
-    
-    const nome = document.getElementById('cad-nome').value;
-    const cpf = document.getElementById('cad-cpf').value;
-    const email = document.getElementById('cad-email').value;
-    const renda = parseFloat(document.getElementById('cad-renda').value);
-
-    // Validação de Renda PSG (Até 2 salários mínimos = R$ 2.824,00 em 2026)
-    if (renda > 2824) {
-        alert("Atenção: A renda per capita informada ultrapassa o limite de 2 salários mínimos exigido pelo edital de gratuidade do PSG.");
-        return;
-    }
-
-    usuarioLogado = { nome, cpf, email, renda };
-    fecharModal('modalCadastro');
-    atualizarNavbar();
-    alert(`Cadastro realizado com sucesso! Bem-vindo(a), ${nome}.`);
-}
-
-function realizarLogin(event) {
-    event.preventDefault();
-    const email = document.getElementById('login-email').value;
-    
-    // Simulação de login bem-sucedido
-    usuarioLogado = {
-        nome: email.split('@')[0].toUpperCase(),
-        email: email,
-        cpf: "000.000.000-00",
-        renda: 1412
+        renderizarCursos(filtrados);
     };
 
-    fecharModal('modalLogin');
-    atualizarNavbar();
-    alert("Login realizado com sucesso!");
+    if (searchInput) searchInput.addEventListener('input', aplicarFiltros);
+    if (filterArea) filterArea.addEventListener('change', aplicarFiltros);
 }
 
-function fazerLogout() {
-    usuarioLogado = null;
-    inscricoesUsuario = [];
-    atualizarNavbar();
-    mostrarSecao('inicio');
-}
+/* ================= CÁLCULO DE TESTE DE CARREIRA ================= */
+function calcularTesteCarreira() {
+    const form = document.getElementById('formCarreira');
+    if (!form) return;
 
-function atualizarNavbar() {
-    const authSection = document.getElementById('auth-section');
-    const linkMeusCursos = document.getElementById('link-meus-cursos');
-
-    if (usuarioLogado) {
-        authSection.innerHTML = `
-            <span style="font-size: 0.9rem; font-weight: 600;"><i class="fa-solid fa-user"></i> ${usuarioLogado.nome}</span>
-            <button class="btn-secondary" onclick="fazerLogout()" style="padding: 5px 12px;">Sair</button>
-        `;
-        linkMeusCursos.classList.remove('hidden');
-        document.getElementById('dash-user-info').innerText = `Candidato(a): ${usuarioLogado.nome} | E-mail: ${usuarioLogado.email}`;
-    } else {
-        authSection.innerHTML = `
-            <button class="btn-secondary" onclick="abrirModal('modalLogin')">Entrar</button>
-            <button class="btn-primary" onclick="abrirModal('modalCadastro')">Cadastre-se</button>
-        `;
-        linkMeusCursos.classList.add('hidden');
-    }
-}
-
-/* ================= FLUXO DE INSCRIÇÃO ================= */
-function iniciarInscricao(cursoId) {
-    if (!usuarioLogado) {
-        alert("Para se inscrever, você precisa entrar na sua conta ou criar um cadastro gratuito.");
-        abrirModal('modalLogin');
-        return;
-    }
-
-    const curso = cursosPSG.find(c => c.id === cursoId);
+    const formData = new FormData(form);
+    let counts = { tec: 0, gestao: 0, gastronomia: 0 };
     
-    // Verificar se já está inscrito
-    const jaInscrito = inscricoesUsuario.some(c => c.id === cursoId);
-    if (jaInscrito) {
-        alert("Você já realizou a inscrição para este curso. Acompanhe no painel 'Meus Cursos'.");
+    for (let value of formData.values()) {
+        if (counts[value] !== undefined) {
+            counts[value]++;
+        }
+    }
+
+    let maxArea = 'tec';
+    let maxVal = counts.tec;
+    if (counts.gestao > maxVal) { maxArea = 'gestao'; maxVal = counts.gestao; }
+    if (counts.gastronomia > maxVal) { maxArea = 'gastronomia'; maxVal = counts.gastronomia; }
+
+    const resBox = document.getElementById('resultadoTeste');
+    const resText = document.getElementById('textoResultado');
+    
+    let areaNome = "";
+    if (maxArea === 'tec') areaNome = "Tecnologia da Informação (ex: Técnico em Desenvolvimento de Sistemas)";
+    else if (maxArea === 'gestao') areaNome = "Gestão e Negócios (ex: Assistente de Recursos Humanos)";
+    else areaNome = "Gastronomia (ex: Cozinheiro Profissional)";
+
+    resText.innerHTML = `Com base nas suas respostas, seu perfil é altamente compatível com a área de <strong>${areaNome}</strong>!`;
+    resBox.style.display = 'block';
+    resBox.scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ================= CÁLCULO DE RENDA PER CAPITA ================= */
+function calcularRenda() {
+    const rendaInput = document.getElementById('rendaTotal');
+    const pessoasInput = document.getElementById('numPessoas');
+    const resDiv = document.getElementById('resultadoRenda');
+
+    if (!rendaInput || !pessoasInput || !resDiv) return;
+
+    const renda = parseFloat(rendaInput.value);
+    const pessoas = parseInt(pessoasInput.value);
+
+    if (!renda || !pessoas || pessoas <= 0) {
+        resDiv.innerHTML = "<span style='color: var(--danger-color);'>Por favor, preencha a renda e o número de pessoas corretamente.</span>";
         return;
     }
 
-    cursoSelecionadoParaInscricao = curso;
+    const perCapita = renda / pessoas;
+    const limiteDoisSalarios = 3004.00; 
 
-    // Preencher modal de confirmação
-    document.getElementById('conf-curso-titulo').innerText = curso.titulo;
-    document.getElementById('conf-unidade').innerText = curso.unidade;
-    document.getElementById('conf-modalidade').innerText = `${curso.modalidade} (${curso.cargaHoraria})`;
-    document.getElementById('conf-nome').innerText = usuarioLogado.nome;
-
-    abrirModal('modalInscricao');
-}
-
-function confirmarMatricula() {
-    if (cursoSelecionadoParaInscricao) {
-        // Reduzir vaga no mock
-        cursoSelecionadoParaInscricao.vagas -= 1;
-        
-        // Adicionar à lista de inscrições do usuário
-        inscricoesUsuario.push(cursoSelecionadoParaInscricao);
-        
-        fecharModal('modalInscricao');
-        renderizarCursos(cursosPSG); // Atualiza vagas na tela
-        renderizarMeusCursos();
-        
-        alert("Inscrição realizada com sucesso! Fique atento ao seu e-mail para a convocação da matrícula presencial.");
-        mostrarSecao('meus-cursos');
+    if (perCapita <= (limiteDoisSalarios / 2)) {
+        resDiv.innerHTML = `<span style='color: var(--success-color);'>Renda per capita: R$ ${perCapita.toFixed(2)}. Parabéns! Você atende ao critério de renda do PSG.</span>`;
+    } else {
+        resDiv.innerHTML = `<span style='color: var(--danger-color);'>Renda per capita: R$ ${perCapita.toFixed(2)}. Atenção: A renda excede o limite estipulado pelo edital.</span>`;
     }
-}
-
-function renderizarMeusCursos() {
-    const lista = document.getElementById('lista-meus-cursos');
-    lista.innerHTML = '';
-
-    if (inscricoesUsuario.length === 0) {
-        lista.innerHTML = `<p style="text-align: center; color: var(--text-light); padding: 30px;">
-            Você ainda não se inscreveu em nenhum curso do PSG.
-        </p>`;
-        return;
-    }
-
-    inscricoesUsuario.forEach(curso => {
-        const item = document.createElement('div');
-        item.className = 'enrolled-card';
-        item.innerHTML = `
-            <div>
-                <h3 style="color: var(--senac-blue); margin-bottom: 5px;">${curso.titulo}</h3>
-                <p style="font-size: 0.9rem; color: var(--text-light);">
-                    <i class="fa-solid fa-building"></i> ${curso.unidade} &nbsp;|&nbsp; 
-                    <i class="fa-solid fa-clock"></i> ${curso.modalidade}
-                </p>
-            </div>
-            <div>
-                <span class="status-badge"><i class="fa-solid fa-check"></i> Inscrição Confirmada</span>
-            </div>
-        `;
-        lista.appendChild(item);
-    });
 }

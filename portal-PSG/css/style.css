@@ -747,9 +747,9 @@ footer p {
 
 .ficha-ilustracao {
     position: absolute;
-   right: 500px;
-    bottom: 0;
-    height: 485px;
+   right: 300px;
+    bottom: -160px;
+    height: 455px;
     width: auto;
     z-index: 1;
     pointer-events: none;

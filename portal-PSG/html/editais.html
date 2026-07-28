@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editais Disponíveis - Portal Livre Senac PSG</title>
+    <!-- Correto para o index.html -->
+<link rel="stylesheet" href="/portal-PSG/css/global.css">
+<link rel="stylesheet" href="/portal-PSG/css/editais.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                Portal <span class="highlight">Livre</span> <span class="psg-tag">PSG</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="editais.html" class="active">Editais Disponíveis</a></li>
+                <li><a href="teste-carreira.html">Teste de Carreira</a></li>
+                <li><a href="inscricao.html">Inscrição</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="editais-banner-wrapper">
+            <!-- Certifique-se de salvar a imagem com este nome na pasta /img -->
+            <img src="/portal-PSG/img/Programa de gratuitade.png" alt="Banner Editais Senac" class="editais-banner-img" onerror="this.style.display='none'">
+            <div class="editais-header-box">
+                <h2 class="editais-main-title">Editais e Vagas disponíveis</h2>
+                <p class="editais-subtitle">Consulte os editais abertos, requisitos e o quantitativo de vagas para os cursos gratuitos.</p>
+            </div>
+        </div>
+
+        <div class="filter-container">
+            <div class="search-input-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchEdital" placeholder="Buscar por edital ou curso...">
+            </div>
+            <div class="filter-selects">
+                <select id="filterArea">
+                    <option value="">Todas as Áreas</option>
+                    <option value="tecnologia">Tecnologia da Informação</option>
+                    <option value="gestao">Gestão e Negócios</option>
+                    <option value="gastronomia">Gastronomia</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="courses-grid" id="coursesGrid">
+    
+    <!-- Card 1: Exemplo de Curso -->
+    <div class="course-card">
+        <div class="course-header">
+            <h3 class="course-title" style="color: white; margin: 0; font-size: 1.15rem;">Assistente Administrativo</h3>
+            <span class="course-tag">Gestão</span>
+        </div>
+        <div class="course-body">
+            <div class="course-info">
+                <p><i class="fas fa-clock"></i> <strong>Carga Horária:</strong> 160h</p>
+                <p><i class="fas fa-calendar-alt"></i> <strong>Turno:</strong> Noturno</p>
+                <p><i class="fas fa-graduation-cap"></i> <strong>Requisito:</strong> Ensino Fundamental Completo</p>
+            </div>
+        </div>
+        <div class="course-footer">
+            <span class="vagas-tag"><i class="fas fa-users"></i> 15 vagas disponíveis</span>
+            <a href="inscricao.html" class="btn-primary">Inscreva-se</a>
+        </div>
+    </div>
+
+    <!-- Card 2: Exemplo de Curso -->
+    <div class="course-card">
+        <div class="course-header">
+            <h3 class="course-title" style="color: white; margin: 0; font-size: 1.15rem;">Cabeleireiro</h3>
+            <span class="course-tag">Beleza</span>
+        </div>
+        <div class="course-body">
+            <div class="course-info">
+                <p><i class="fas fa-clock"></i> <strong>Carga Horária:</strong> 240h</p>
+                <p><i class="fas fa-calendar-alt"></i> <strong>Turno:</strong> Matutino</p>
+                <p><i class="fas fa-graduation-cap"></i> <strong>Requisito:</strong> 18 anos completos</p>
+            </div>
+        </div>
+        <div class="course-footer">
+            <span class="vagas-tag"><i class="fas fa-users"></i> 8 vagas disponíveis</span>
+            <a href="inscricao.html" class="btn-primary">Inscreva-se</a>
+        </div>
+    </div>
+
+    <!-- Card 3: Exemplo de Curso -->
+    <div class="course-card">
+        <div class="course-header">
+            <h3 class="course-title" style="color: white; margin: 0; font-size: 1.15rem;">Programador Web</h3>
+            <span class="course-tag">Tecnologia</span>
+        </div>
+        <div class="course-body">
+            <div class="course-info">
+                <p><i class="fas fa-clock"></i> <strong>Carga Horária:</strong> 200h</p>
+                <p><i class="fas fa-calendar-alt"></i> <strong>Turno:</strong> Vespertino</p>
+                <p><i class="fas fa-graduation-cap"></i> <strong>Requisito:</strong> Informática Básica</p>
+            </div>
+        </div>
+        <div class="course-footer">
+            <span class="vagas-tag"><i class="fas fa-users"></i> 12 vagas disponíveis</span>
+            <a href="inscricao.html" class="btn-primary">Inscreva-se</a>
+        </div>
+    </div>
+
+</div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Portal Livre Senac. Todos os direitos reservados.</p>
+            <p>Programa Senac de Gratuidade - PSG</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

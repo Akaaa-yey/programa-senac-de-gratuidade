@@ -1,0 +1,189 @@
+/* ================= BANNER E FILTROS ================= */
+.editais-banner-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.editais-banner-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 420px;           /* Altura fixa menor (você pode testar 200px ou 250px) */
+    object-fit: cover;       /* Corta as bordas superior/inferior de forma limpa para não achatar */
+    object-position: center; /* Mantém o centro do banner em foco */
+    margin: 0 auto 25px;
+    border-radius: var(--radius);
+}
+.editais-header-box {
+    margin-bottom: 30px;
+}
+
+.editais-main-title {
+    color: var(--senac-orange);
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.editais-main-title::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 35px;
+    background-color: var(--senac-orange);
+    border-radius: 2px;
+}
+
+.editais-subtitle {
+    color: var(--senac-blue);
+    font-size: 1rem;
+    font-weight: 500;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.filter-container {
+    background: var(--bg-white);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.search-input-box {
+    flex: 1;
+    min-width: 280px;
+    position: relative;
+}
+
+.search-input-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+}
+
+.search-input-box input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    outline: none;
+}
+
+.filter-selects {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-selects select {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    outline: none;
+    background-color: var(--bg-white);
+    cursor: pointer;
+}
+
+/* ================= GRID DE CURSOS ================= */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.course-card {
+    background: var(--bg-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.course-header {
+    background-color: var(--senac-blue);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-tag {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.course-body {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--senac-blue);
+    margin-bottom: 10px;
+}
+
+.course-info {
+    margin-bottom: 15px;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.course-info i {
+    width: 20px;
+    color: var(--senac-orange);
+}
+
+.course-footer {
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-color);
+    background-color: #f8fafc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vagas-tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--success-color);
+}
+
+@media (max-width: 768px) {
+    .filter-container { flex-direction: column; }
+    .filter-selects { flex-direction: column; width: 100%; }
+    .filter-selects select { width: 100%; }
+    .editais-main-title { font-size: 1.8rem; }
+}
