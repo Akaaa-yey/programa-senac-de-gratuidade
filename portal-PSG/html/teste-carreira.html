@@ -3,145 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste de Carreira - Portal Livre Senac PSG</title>
-   <!-- Correto para o index.html -->
-<link rel="stylesheet" href="/portal-PSG/css/global.css">
-<link rel="stylesheet" href="/portal-PSG/css/teste-carreira.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Teste de Carreira</title>
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/portal-PSG/css/teste-carreira.css">
 </head>
 <body>
-
-    <header class="navbar">
-        <div class="container nav-content">
-            <a href="index.html" class="logo">
-                Portal <span class="highlight">Livre</span> <span class="psg-tag">PSG</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="editais.html">Editais Disponíveis</a></li>
-                <li><a href="teste-carreira.html" class="active">Teste de Carreira</a></li>
-                <li><a href="inscricao.html">Inscrição</a></li>
-            </ul>
-        </div>
+    <!-- Cabeçalho principal do site -->
+    <header>
+        <!-- O outro header será colocado aqui posteriormente -->
     </header>
 
-    <main class="container">
-        <div class="section-header">
-            <h2>Teste de Orientação Profissional</h2>
-            <p>Responda às questões abaixo com atenção para descobrir qual área de atuação mais combina com o seu perfil profissional.</p>
+    <!-- Elementos decorativos -->
+    <div class="decor decor-top-left"></div>
+    <div class="decor decor-bottom-left"></div>
+    <div class="decor decor-right"></div>
+
+    <!-- Apresentação do teste -->
+    <section class="test-introduction">
+        <h1>Teste de carreira</h1>
+        <div class="title-wave"></div>
+        <p>
+            Descubra quais são os seus pontos fortes e como você pode<br>
+            transformar talentos em carreira.
+        </p>
+    </section>
+
+    <!-- Área principal do teste -->
+    <main class="quiz-card">
+
+        <!-- Barra de progresso (Será oculta no resultado) -->
+        <div class="progress-bar" id="progressBarContainer">
+            <div class="progress" id="progressBar"></div>
         </div>
 
-        <div class="carreira-container">
-            <form id="formCarreira" onsubmit="event.preventDefault(); calcularTesteCarreira();">
-                
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">1. O que você mais gosta de fazer no seu dia a dia profissional?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p1" value="tec" required> Resolver problemas lógicos e usar tecnologia</label>
-                        <label class="opcao-label"><input type="radio" name="p1" value="gestao"> Organizar equipes, planejar e negociar</label>
-                        <label class="opcao-label"><input type="radio" name="p1" value="gastronomia"> Criar pratos, cozinhar e explorar sabores</label>
-                    </div>
-                </div>
+        <!-- Conteúdo da pergunta -->
+        <section class="question-area" id="questionArea">
 
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">2. Como você prefere resolver problemas complexos?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p2" value="tec" required> Análise lógica, testes e engenharia de dados</label>
-                        <label class="opcao-label"><input type="radio" name="p2" value="gestao"> Planejamento estratégico e reuniões de alinhamento</label>
-                        <label class="opcao-label"><input type="radio" name="p2" value="gastronomia"> Prática manual, testes de receitas e improvisação criativa</label>
-                    </div>
-                </div>
+            <!-- Lado esquerdo -->
+            <div class="question-content">
+                <span class="question-number" id="questionNumber">QUESTÃO 1</span>
 
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">3. Em um ambiente de trabalho, qual papel você assume naturalmente?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p3" value="tec" required> O especialista técnico que resolve bugs e sistemas</label>
-                        <label class="opcao-label"><input type="radio" name="p3" value="gestao"> O líder ou coordenador de projetos e pessoas</label>
-                        <label class="opcao-label"><input type="radio" name="p3" value="gastronomia"> O executor focado na qualidade operacional e produção</label>
-                    </div>
-                </div>
+                <h2 id="questionText">
+                    <!-- O texto da pergunta será inserido aqui via JS -->
+                </h2>
 
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">4. Qual tipo de ambiente de trabalho mais te motiva?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p4" value="tec" required> Escritório moderno ou remoto com foco em inovação digital</label>
-                        <label class="opcao-label"><input type="radio" name="p4" value="gestao"> Salas de reunião corporativas e centros administrativos</label>
-                        <label class="opcao-label"><input type="radio" name="p4" value="gastronomia"> Cozinhas profissionais, confeitarias ou laboratórios culinários</label>
-                    </div>
-                </div>
-
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">5. Como você lida com prazos apertados e pressão?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p5" value="tec" required> Automatizando processos e focando na linha de código</label>
-                        <label class="opcao-label"><input type="radio" name="p5" value="gestao"> Reorganizando cronogramas e prioridades da equipe</label>
-                        <label class="opcao-label"><input type="radio" name="p5" value="gastronomia"> Mantendo o ritmo acelerado de produção com precisão prática</label>
-                    </div>
-                </div>
-
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">6. Qual destas atividades você faria por horas sem notar o tempo passar?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p6" value="tec" required> Desenvolver softwares ou estruturar bancos de dados</label>
-                        <label class="opcao-label"><input type="radio" name="p6" value="gestao"> Analisar planilhas financeiras e planejar estratégias</label>
-                        <label class="opcao-label"><input type="radio" name="p6" value="gastronomia"> Experimentar receitas, cortes e combinações de ingredientes</label>
-                    </div>
-                </div>
-
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">7. O que você considera mais gratificante em um projeto concluído?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p7" value="tec" required> Ver um sistema ou aplicativo rodando perfeitamente sem erros</label>
-                        <label class="opcao-label"><input type="radio" name="p7" value="gestao"> Ver metas de desempenho superadas e equipes engajadas</label>
-                        <label class="opcao-label"><input type="radio" name="p7" value="gastronomia"> Ver clientes ou convidados satisfeitos com o prato servido</label>
-                    </div>
-                </div>
-
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">8. Como você prefere adquirir novos conhecimentos e habilidades?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p8" value="tec" required> Cursos de programação, redes, lógica ou inteligência artificial</label>
-                        <label class="opcao-label"><input type="radio" name="p8" value="gestao"> Cursos de liderança, administração, finanças ou recursos humanos</label>
-                        <label class="opcao-label"><input type="radio" name="p8" value="gastronomia"> Aulas práticas de culinária, confeitaria e segurança alimentar</label>
-                    </div>
-                </div>
-
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">9. Qual ferramenta ou recurso profissional mais atrai sua atenção?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p9" value="tec" required> Ambientes de desenvolvimento de software e IDEs</label>
-                        <label class="opcao-label"><input type="radio" name="p9" value="gestao"> Softwares de gestão empresarial (ERP) e indicadores de KPI</label>
-                        <label class="opcao-label"><input type="radio" name="p9" value="gastronomia"> Utensílios de alta performance e ingredientes sofisticados</label>
-                    </div>
-                </div>
-
-                <div class="pergunta-box">
-                    <p class="pergunta-titulo">10. Qual o seu principal objetivo profissional a longo prazo?</p>
-                    <div class="opcoes-lista">
-                        <label class="opcao-label"><input type="radio" name="p10" value="tec" required> Ser um especialista ou arquiteto de soluções em tecnologia</label>
-                        <label class="opcao-label"><input type="radio" name="p10" value="gestao"> Tornar-se executivo, gestor ou abrir um negócio próprio</label>
-                        <label class="opcao-label"><input type="radio" name="p10" value="gastronomia"> Consolidar-se como Chef renomado ou empreender no setor de alimentos</label>
-                    </div>
-                </div>
-
-                <button type="submit" class="btn-primary btn-lg btn-full">Ver Resultado do Teste</button>
-            </form>
-
-            <div id="resultadoTeste" class="resultado-box">
-                <h3>Resultado da Orientação Profissional</h3>
-                <p id="textoResultado"></p>
-                <a href="editais.html" class="btn-primary">Ver Editais para esta Área</a>
+                <img
+                    class="question-image"
+                    id="questionImage"
+                    src=""
+                    alt="Ilustração da pergunta"
+                >
             </div>
-        </div>
+
+            <!-- Lado direito -->
+            <div class="answers-wrapper">
+                
+                <!-- Container das alternativas -->
+                <div class="answers" id="answersContainer"></div>
+
+                <!-- Botões de navegação -->
+                <div class="navigation-buttons">
+                    
+                    <!-- Botão Anterior -->
+                    <button
+                        class="nav-button prev-button"
+                        id="prevButton"
+                        style="display: none;"
+                    >
+                        <span class="nav-icon">‹</span>
+                        <span>Anterior</span>
+                    </button>
+
+                    <!-- Botão Próximo -->
+                    <button
+                        class="nav-button next-button"
+                        id="nextButton"
+                    >
+                        <span class="nav-icon">›</span>
+                        <span>Próximo</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Tela de Resultado (Oculta por padrão) -->
+        <section class="result-area" id="resultArea" style="display: none;">
+            <h2 class="result-title">Parabéns! Você finalizou o teste de carreira!</h2>
+            <p class="result-subtitle">Áreas profissionais que mais se assemelham com o seu perfil:</p>
+
+            <div class="results-list" id="resultsList">
+                <!-- As 3 áreas/cursos serão renderizadas dinamicamente via JS -->
+            </div>
+
+            <div class="restart-container">
+                <button class="restart-button" id="restartButton">Recomeçar teste</button>
+            </div>
+        </section>
+
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Portal Livre Senac. Todos os direitos reservados.</p>
-            <p>Programa Senac de Gratuidade - PSG</p>
-        </div>
-    </footer>
-
-    <script src="js/script.js"></script>
+    <!-- Script JS -->
+    <script src="/portal-PSG/js/teste-carreira.js"></script>
 </body>
 </html>
