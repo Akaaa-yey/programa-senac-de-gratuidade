@@ -5,94 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste de Carreira</title>
     <!-- Fontes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/portal-PSG/css/global.css">
     <link rel="stylesheet" href="/portal-PSG/css/teste-carreira.css">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet">
 <body>
     <!-- Cabeçalho principal do site -->
-    <header>
-        <!-- O outro header será colocado aqui posteriormente -->
+     <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                Portal <span class="highlight">Livre</span> <span class="psg-tag">PSG</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="editais.html">Editais Disponíveis</a></li>
+                <li><a href="teste-carreira.html" class="active>Teste de Carreira</a></li>
+                <li><a href="inscricao.html">Inscrição</a></li>
+            </ul>
+        </div>
     </header>
-
-    <!-- Elementos decorativos -->
-    <div class="decor decor-top-left"></div>
-    <div class="decor decor-bottom-left"></div>
-    <div class="decor decor-right"></div>
+    
 
     <!-- Apresentação do teste -->
     <section class="test-introduction">
         <h1>Teste de carreira</h1>
-        <div class="title-wave"></div>
+       
         <p>
             Descubra quais são os seus pontos fortes e como você pode<br>
             transformar talentos em carreira.
         </p>
     </section>
 
-    <!-- Área principal do teste -->
+<!-- Área principal do teste -->
     <main class="quiz-card">
 
-        <!-- Barra de progresso (Será oculta no resultado) -->
-        <div class="progress-bar" id="progressBarContainer">
-            <div class="progress" id="progressBar"></div>
-        </div>
+        <!-- ENVOLVÓRIO DAS PERGUNTAS + BOTÕES -->
+        <div id="quizContent">
 
-        <!-- Conteúdo da pergunta -->
-        <section class="question-area" id="questionArea">
-
-            <!-- Lado esquerdo -->
-            <div class="question-content">
-                <span class="question-number" id="questionNumber">QUESTÃO 1</span>
-
-                <h2 id="questionText">
-                    <!-- O texto da pergunta será inserido aqui via JS -->
-                </h2>
-
-                <img
-                    class="question-image"
-                    id="questionImage"
-                    src=""
-                    alt="Ilustração da pergunta"
-                >
+            <!-- Barra de progresso -->
+            <div class="progress-bar" id="progressBarContainer">
+                <div class="progress" id="progressBar"></div>
             </div>
 
-            <!-- Lado direito -->
-            <div class="answers-wrapper">
-                
-                <!-- Container das alternativas -->
-                <div class="answers" id="answersContainer"></div>
+            <!-- Conteúdo da pergunta -->
+            <section class="question-area" id="questionArea">
 
-                <!-- Botões de navegação -->
-                <div class="navigation-buttons">
-                    
-                    <!-- Botão Anterior -->
-                    <button
-                        class="nav-button prev-button"
-                        id="prevButton"
-                        style="display: none;"
+                <!-- Lado esquerdo -->
+                <div class="question-content">
+                    <span class="question-number" id="questionNumber">QUESTÃO 1</span>
+
+                    <h2 id="questionText">
+                        <!-- O texto da pergunta será inserido aqui via JS -->
+                    </h2>
+
+                    <img
+                        class="question-image"
+                        id="questionImage"
+                        src=""
+                        alt="Ilustração da pergunta"
                     >
-                        <span class="nav-icon">‹</span>
-                        <span>Anterior</span>
-                    </button>
-
-                    <!-- Botão Próximo -->
-                    <button
-                        class="nav-button next-button"
-                        id="nextButton"
-                    >
-                        <span class="nav-icon">›</span>
-                        <span>Próximo</span>
-                    </button>
-
                 </div>
 
+                <!-- Lado direito -->
+                <div class="answers-wrapper">
+                    <div class="answers" id="answersContainer"></div>
+                </div>
+
+            </section>
+
+            <!-- Botões de navegação -->
+            <div class="navigation-buttons" id="navigationButtonsContainer">
+                <button
+                    class="nav-button prev-button"
+                    id="prevButton"
+                    style="display: none;"
+                >
+                    <span class="nav-icon">‹</span>
+                    <span>Anterior</span>
+                </button>
+
+                <button
+                    class="nav-button next-button"
+                    id="nextButton"
+                >
+                    <span>Próximo</span>
+                    <span class="nav-icon">›</span>
+                </button>
             </div>
 
-        </section>
+        </div>
 
-        <!-- Tela de Resultado (Oculta por padrão) -->
+        <!-- TELA DE RESULTADO (Fora do #quizContent) -->
         <section class="result-area" id="resultArea" style="display: none;">
             <h2 class="result-title">Parabéns! Você finalizou o teste de carreira!</h2>
             <p class="result-subtitle">Áreas profissionais que mais se assemelham com o seu perfil:</p>
@@ -109,5 +111,7 @@
     </main>
     <!-- Script JS -->
     <script src="/portal-PSG/js/teste-carreira.js"></script>
+    <!-- Biblioteca do Confete -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </body>
 </html>

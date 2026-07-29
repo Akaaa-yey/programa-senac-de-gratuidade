@@ -73,7 +73,13 @@ header {
     border-radius: 15px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
-
+#quizContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
 /* =========================
    BARRA DE PROGRESSO
 ========================= */
@@ -194,48 +200,57 @@ header {
     font-weight: 700;
     color: white;
 }
-
-/* =========================
-   NAVEGAÇÃO (PRÓXIMO / ANTERIOR)
-========================= */
+/* Container dos botões de navegação centralizados na parte inferior do card */
 .navigation-buttons {
     display: flex;
-    justify-content: flex-end;
-    gap: 20px;
-    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f3f4f6; /* Opcional: linha sutil de separação */
+    width: 100%;
 }
 
+/* Estilização padrão dos botões de avançar/voltar */
 .nav-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 8px;
-    border: none;
-    background: transparent;
-    font-family: "Lekton", monospace;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--dark);
-    cursor: pointer;
-    transition: opacity 0.2s ease;
+    gap: 0.5rem;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #374151;
+    transition: color 0.2s ease;
 }
 
 .nav-button:hover {
-    opacity: 0.8;
+    color: #1e3a8a;
 }
 
+/* Ícone circular dos botões (Anterior e Próximo) */
 .nav-icon {
-    display: grid;
-    place-items: center;
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: white;
-    color: var(--blue);
-    font-size: 24px;
-    line-height: 1;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border: 1px solid #d1d5db;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4b5563;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
 }
 
+.nav-button:hover .nav-icon {
+    border-color: #1e3a8a;
+    color: #1e3a8a;
+}
 /* =========================
    TELA DE RESULTADO
 ========================= */
