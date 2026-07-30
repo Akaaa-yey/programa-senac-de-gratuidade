@@ -2,7 +2,7 @@
 const perguntas = [
     {
         numero: "QUESTÃO 1",
-        pergunta: "Em um projeto em grupo, qual papel você naturally assume?",
+        pergunta: "Em um projeto em grupo, qual papel você assume naturalmente?",
         imagem: "/portal-PSG/img/pessoas-trabalhando.png",
         opcoes: [
             { texto: "O porta-voz, responsável por apresentar as ideias do grupo", valor: "design" },
@@ -54,7 +54,7 @@ const perguntas = [
         imagem: "/portal-PSG/img/pessoas-trabalhando.png",
         opcoes: [
             { texto: "O poder de se comunicar em qualquer idioma", valor: "design" },
-            { texto: "O poder de influenciar e persuadir pessoas.", valor: "corporativo" },
+            { texto: "O poder de influenciar e persuadir pessoas", valor: "corporativo" },
             { texto: "O poder de curar ou de entender os sentimentos dos outros", valor: "social" },
             { texto: "O poder de entender e controlar qualquer tecnologia", valor: "tech" },
             { texto: "O poder de construir qualquer coisa com a mente", valor: "operacional" }
@@ -93,7 +93,7 @@ const perguntas = [
             { texto: "Desorganização, falta de planejamento e desperdício de tempo", valor: "corporativo" },
             { texto: "Egoísmo, falta de empatia e injustiça social", valor: "social" },
             { texto: "Sistemas lentos, tecnologia que não funciona e informações incorretas", valor: "tech" },
-            { texto: "Projetos mal executados, falta de soluções práticas e coisas que poderiam ser melhor construídas.", valor: "operacional" }
+            { texto: "Projetos mal executados e falta de soluções práticas", valor: "operacional" }
         ]
     },
     {
@@ -105,7 +105,7 @@ const perguntas = [
             { texto: "Tempo é dinheiro", valor: "corporativo" },
             { texto: "Ajudar o próximo é a minha maior motivação", valor: "social" },
             { texto: "Existe uma solução lógica para todo problema", valor: "tech" },
-            { texto: "Se dá para imaginar, dá para criar.", valor: "operacional" }
+            { texto: "Se dá para imaginar, dá para criar", valor: "operacional" }
         ]
     },
     {
@@ -117,7 +117,7 @@ const perguntas = [
             { texto: "Suspense ou filmes sobre o mercado financeiro", valor: "corporativo" },
             { texto: "Histórias de superação ou com forte mensagem social", valor: "social" },
             { texto: "Ficção científica ou filmes com reviravoltas inteligentes", valor: "tech" },
-            { texto: "Ação, aventura ou filmes sobre grandes construções.", valor: "operacional" }
+            { texto: "Ação, aventura ou filmes sobre grandes construções", valor: "operacional" }
         ]
     }
 ];
@@ -250,8 +250,20 @@ function exibirResultados() {
     if (elProgressBarContainer) elProgressBarContainer.style.display = 'none';
     if (containerNavegacao) containerNavegacao.style.display = 'none';
 
-    // Exibe a tela de resultado
-    if (elResultArea) elResultArea.style.display = 'block';
+    // Exibe a tela de resultado e dispara confete
+    if (elResultArea) {
+        elResultArea.style.display = 'block';
+        
+        // Disparo da Animação de Confete
+        if (typeof confetti === 'function') {
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#112FE0', '#FF811C', '#FFFFFF']
+            });
+        }
+    }
 
     // Conta os pontos acumulados por categoria
     const pontuacao = {};
@@ -266,7 +278,7 @@ function exibirResultados() {
     const todasAreas = ['social', 'design', 'corporativo', 'tech', 'operacional'];
     const top3 = [...new Set([...perfisOrdenados, ...todasAreas])].slice(0, 3);
 
-    // Renderiza os cards na tela final
+    // Renderiza os cards na tela final (Design Laranja Limpo)
     if (elResultsList) {
         elResultsList.innerHTML = '';
         top3.forEach(chave => {
@@ -276,9 +288,6 @@ function exibirResultados() {
                     <div class="result-card">
                         <h3>${area.titulo}</h3>
                         <p>${area.descricao}</p>
-                        <a href="/portal-PSG/html/index.html">
-                            <button class="search-course-btn">Pesquisar cursos da área</button>
-                        </a>
                     </div>
                 `;
                 elResultsList.innerHTML += cardHtml;

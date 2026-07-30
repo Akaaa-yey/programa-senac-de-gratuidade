@@ -5,84 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Início - Portal Livre Senac PSG</title>
     
-    <!-- Links para os arquivos CSS locais -->
-    <link rel="stylesheet" href="/portal-PSG/css/global.css">
-    <link rel="stylesheet" href="/portal-PSG/css/index.css">
-    
-    <!-- Fonte Inter do Google Fonts -->
+    <!-- 1. Fonte padrão de todas as telas -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS (Caso utilize via CDN para as classes utilitárias) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-[#F8F6F0] text-gray-800 font-sans">
 
-    <!-- HEADER / NAVBAR -->
+    <!-- 2. CSS Global (SEMPRE PRIMEIRO) -->
+    <link rel="stylesheet" href="/portal-PSG/css/global.css">
+
+    <!-- 3. CSS específico do Index (DEPOIS do global) -->
+    <link rel="stylesheet" href="/portal-PSG/css/index.css">
+</head>
+<body>
+
     <header class="navbar">
-        <div class="container nav-content">
-            <a href="index.html" class="logo">
-                Portal <span class="highlight">Livre</span> <span class="psg-tag">PSG</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Início</a></li>
-                <li><a href="editais.html">Editais Disponíveis</a></li>
-                <li><a href="teste-carreira.html">Teste de Carreira</a></li>
-                <li><a href="inscricao.html">Inscrição</a></li>
-            </ul>
-        </div>
-    </header>
+    <div class="container nav-content">
+        <a href="index.html" class="logo">
+            <img src="/portal-PSG/img/senac-logo.png" alt="Senac" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Início</a></li>
+            <li><a href="editais.html">Editais Disponíveis</a></li>
+            <li><a href="teste-carreira.html">Teste de Carreira</a></li>
+            <li><a href="inscricao.html">Inscrição</a></li>
+        </ul>
+    </div>
+</header>
 
     <!-- HERO SECTION -->
-    <section class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between">
-        <div class="md:w-1/2 space-y-4">
-            <p class="text-blue-700 font-medium text-sm md:text-base max-w-sm">
+    <section class="hero-section">
+        <div class="hero-content">
+            <p class="hero-subtitle">
                 Inscreva-se em cursos 100% gratuitos do Senac e dê o próximo passo na sua carreira
             </p>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-blue-900 tracking-wide uppercase leading-tight">
+            <h1 class="hero-title">
                 Programa Senac de Gratuidade
             </h1>
         </div>
-        <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center">
-            <!-- Placeholder para Ilustração do Hero -->
-            <div class="w-72 h-72 bg-purple-100 rounded-full flex items-center justify-center text-blue-900 font-bold border-4 border-orange-400">
-                [Ilustração Hero]
-            </div>
+        <div class="illustration-placeholder">
+            [Ilustração Hero]
         </div>
     </section>
 
     <!-- REGRAS DO PROGRAMA -->
-    <section class="max-w-6xl mx-auto px-6 py-12">
-        <div class="flex items-center gap-3 mb-8">
-            <div class="w-1.5 h-8 bg-orange-500 rounded-full"></div>
-            <h2 class="text-2xl font-bold text-orange-600">Confira as regras do programa</h2>
+    <section class="rules-section">
+        <div class="section-header">
+            <div class="section-bar"></div>
+            <h2 class="section-title">Confira as regras do programa</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-            <div class="space-y-3">
-                <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-orange-100">
-                    <span class="bg-orange-400 text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center shrink-0">1</span>
-                    <p class="text-sm font-medium text-gray-700">Ter renda máxima de 2 salários mínimos por família</p>
+        <div class="rules-grid">
+            <div class="rules-list">
+                <div class="rule-item">
+                    <span class="rule-number">1</span>
+                    <p class="rule-text">Ter renda máxima de 2 salários mínimos por família</p>
                 </div>
-                <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-orange-100">
-                    <span class="bg-orange-400 text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center shrink-0">2</span>
-                    <p class="text-sm font-medium text-gray-700">Ter a documentação necessária para a inscrição</p>
+                <div class="rule-item">
+                    <span class="rule-number">2</span>
+                    <p class="rule-text">Ter a documentação necessária para a inscrição</p>
                 </div>
-                <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-orange-100">
-                    <span class="bg-orange-400 text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center shrink-0">3</span>
-                    <p class="text-sm font-medium text-gray-700">Estar disponível nos dias e horários das aulas</p>
+                <div class="rule-item">
+                    <span class="rule-number">3</span>
+                    <p class="rule-text">Estar disponível nos dias e horários das aulas</p>
                 </div>
-                <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-orange-100">
-                    <span class="bg-orange-400 text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center shrink-0">4</span>
-                    <p class="text-sm font-medium text-gray-700">Não ter abandonado um curso como bolsista nos últimos 6 meses</p>
+                <div class="rule-item">
+                    <span class="rule-number">4</span>
+                    <p class="rule-text">Não ter abandonado um curso como bolsista nos últimos 6 meses</p>
                 </div>
-                <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-sm border border-orange-100">
-                    <span class="bg-orange-400 text-white font-bold w-8 h-8 rounded-lg flex items-center justify-center shrink-0">5</span>
-                    <p class="text-sm font-medium text-gray-700">Fazer até dois cursos por vez</p>
+                <div class="rule-item">
+                    <span class="rule-number">5</span>
+                    <p class="rule-text">Fazer até dois cursos por vez</p>
                 </div>
             </div>
-            <div class="flex justify-center">
-                <!-- Placeholder para Ilustração Regras -->
-                <div class="w-64 h-64 bg-purple-100 rounded-full flex items-center justify-center text-blue-900 font-bold border-4 border-purple-300">
+            <div style="display: flex; justify-content: center;">
+                <div class="illustration-placeholder">
                     [Ilustração Lupa]
                 </div>
             </div>
@@ -90,85 +84,85 @@
     </section>
 
     <!-- ETAPAS DE INSCRIÇÃO -->
-    <section class="bg-white py-16 mt-12 relative">
-        <div class="max-w-6xl mx-auto px-6 text-center">
-            <h2 class="text-2xl font-bold text-blue-900 mb-12">Etapas de inscrição</h2>
+    <section class="steps-section">
+        <div class="steps-container">
+            <h2 class="steps-title">Etapas de inscrição</h2>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 font-bold flex items-center justify-center mb-3 bg-white">1</div>
-                    <p class="text-xs text-gray-600">Localize o curso e o canal para solicitar a bolsa</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <p class="step-desc">Localize o curso e o canal para solicitar a bolsa</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 font-bold flex items-center justify-center mb-3 bg-white">2</div>
-                    <p class="text-xs text-gray-600">Preencha as informações do curso com o turno de desejo</p>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <p class="step-desc">Preencha as informações do curso com o turno de desejo</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 font-bold flex items-center justify-center mb-3 bg-white">3</div>
-                    <p class="text-xs text-gray-600">Verifique a disponibilidade e o horário-aula</p>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <p class="step-desc">Verifique a disponibilidade e o horário-aula</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 font-bold flex items-center justify-center mb-3 bg-white">4</div>
-                    <p class="text-xs text-gray-600">Fique atento se você for selecionado e o prazo limitador</p>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <p class="step-desc">Fique atento se você for selecionado e o prazo limitador</p>
                 </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 rounded-full border-2 border-blue-600 text-blue-600 font-bold flex items-center justify-center mb-3 bg-white">5</div>
-                    <p class="text-xs text-gray-600">Após a inscrição, todas as informações serão enviadas por e-mail, SMS e WhatsApp</p>
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <p class="step-desc">Após a inscrição, todas as informações serão enviadas por e-mail, SMS e WhatsApp</p>
                 </div>
             </div>
 
-            <!-- CTA BUTTON -->
-            <div class="mt-12">
-                <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-10 py-3.5 rounded-full shadow-md transition">
+            <!-- BOTÃO CTA GLOBAL -->
+            <div class="cta-container">
+                <a href="inscricao.html" class="btn-primary btn-lg">
                     Inscreva-se
-                </button>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- AINDA EM DÚVIDA -->
-    <section class="max-w-6xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center justify-between">
-        <div class="space-y-4 md:w-1/2">
-            <h2 class="text-2xl font-bold text-orange-600">Ainda em dúvida?</h2>
-            <p class="text-gray-600 text-sm">Descubra quais áreas combinam com seu perfil e seus interesses</p>
-            <button class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full shadow-sm text-sm transition">
+    <section class="career-section">
+        <div class="career-content">
+            <h2 class="career-title">Ainda em dúvida?</h2>
+            <p class="career-desc">Descubra quais áreas combinam com seu perfil e seus interesses</p>
+            <a href="teste-carreira.html" class="btn-primary">
                 Faça um teste de carreira!
-            </button>
+            </a>
         </div>
-        <div class="mt-8 md:mt-0 flex justify-center md:w-1/2">
-            <div class="w-64 h-48 bg-purple-100 rounded-2xl flex items-center justify-center text-blue-900 font-bold border-2 border-purple-200">
-                [Ilustração Teste]
-            </div>
+        <div class="illustration-placeholder">
+            [Ilustração Teste]
         </div>
     </section>
 
     <!-- DÚVIDAS FREQUENTES -->
-    <section class="bg-[#EFECE6] py-16">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex items-center gap-3 mb-10">
-                <div class="w-1.5 h-8 bg-orange-500 rounded-full"></div>
-                <h2 class="text-2xl font-bold text-orange-600">Dúvidas Frequentes</h2>
+    <section class="faq-section">
+        <div class="faq-grid">
+            <div class="section-header" style="grid-column: 1 / -1; margin-bottom: 10px;">
+                <div class="section-bar"></div>
+                <h2 class="section-title">Dúvidas Frequentes</h2>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-x-12 gap-y-4 text-sm font-medium text-orange-600">
-                <div class="space-y-4">
-                    <a href="#" class="block hover:underline">Quem pode participar?</a>
-                    <a href="#" class="block hover:underline">Os cursos são gratuitos?</a>
-                    <a href="#" class="block hover:underline">Como falar com o suporte?</a>
-                    <a href="#" class="block hover:underline">Como faço minha inscrição?</a>
-                </div>
-                <div class="space-y-4">
-                    <a href="#" class="block hover:underline">Como faço minha inscrição?</a>
-                    <a href="#" class="block hover:underline">Como consultar o resultado?</a>
-                    <a href="#" class="block hover:underline">Onde acompanho os editais?</a>
-                    <a href="#" class="block hover:underline">Como funciona o teste de carreira?</a>
-                </div>
+            <div class="faq-column">
+                <a href="#" class="faq-link">Quem pode participar?</a>
+                <a href="#" class="faq-link">Os cursos são gratuitos?</a>
+                <a href="#" class="faq-link">Como falar com o suporte?</a>
+                <a href="#" class="faq-link">Como faço minha inscrição?</a>
+            </div>
+            <div class="faq-column">
+                <a href="#" class="faq-link">Como faço minha inscrição?</a>
+                <a href="#" class="faq-link">Como consultar o resultado?</a>
+                <a href="#" class="faq-link">Onde acompanho os editais?</a>
+                <a href="#" class="faq-link">Como funciona o teste de carreira?</a>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="bg-blue-700 h-24 w-full"></footer>
+    <!-- FOOTER GLOBAL -->
+    <footer>
+        <div class="container">
+            <p>© Programa Senac de Gratuidade. Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
     <!-- Script JavaScript -->
     <script src="/portal-PSG/js/script.js"></script>

@@ -223,7 +223,7 @@ header {
     font-family: 'Lexend', sans-serif;
     font-weight: 600;
     font-size: 0.95rem;
-    color: #374151;
+    color: #003892;
     transition: color 0.2s ease;
 }
 
@@ -241,22 +241,34 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #4b5563;
+    color: #005bda;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     font-size: 1.1rem;
     transition: all 0.2s ease;
 }
 
 .nav-button:hover .nav-icon {
-    border-color: #1e3a8a;
-    color: #1e3a8a;
+    border-color: #0A1AEB;
+    color: #0A1AEB;
 }
 /* =========================
-   TELA DE RESULTADO
+   TELA DE RESULTADO & ANIMAÇÃO
 ========================= */
+@keyframes surgirSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .result-area {
     text-align: center;
     padding: 10px 20px;
+    animation: surgirSuave 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .result-title {
@@ -284,12 +296,25 @@ header {
     margin: 0 auto;
 }
 
+/* Novo Design dos Cards (Laranja) */
+.result-card {
+    background-color: var(--orange);
+    padding: 24px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-3px);
+}
+
 .result-card h3 {
     font-family: "Lexend", sans-serif;
     font-size: 22px;
     font-weight: 800;
-    color: var(--blue);
-    margin-bottom: 6px;
+    color: #FFFFFF;
+    margin-bottom: 12px;
 }
 
 .result-card p {
@@ -297,26 +322,8 @@ header {
     font-size: 16px;
     font-weight: 700;
     line-height: 1.25;
-    color: var(--dark);
-    margin-bottom: 12px;
-}
-
-.search-course-btn {
-    background-color: var(--orange);
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 24px;
-    font-family: "Lekton", monospace;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-    transition: opacity 0.2s;
-}
-
-.search-course-btn:hover {
-    opacity: 0.9;
+    color: #FFFFFF;
+    margin-bottom: 0;
 }
 
 .restart-container {
