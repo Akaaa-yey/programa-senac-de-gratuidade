@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Carreira</title>
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lekton:wght@400;700&family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/portal-PSG/css/teste-carreira.css">
+</head>
+<body>
+    <!-- Cabeçalho principal do site -->
+    <header>
+        <!-- O outro header será colocado aqui posteriormente -->
+    </header>
+
+    <!-- Elementos decorativos -->
+    <div class="decor decor-top-left"></div>
+    <div class="decor decor-bottom-left"></div>
+    <div class="decor decor-right"></div>
+
+    <!-- Apresentação do teste -->
+    <section class="test-introduction">
+        <h1>Teste de carreira</h1>
+        <div class="title-wave"></div>
+        <p>
+            Descubra quais são os seus pontos fortes e como você pode<br>
+            transformar talentos em carreira.
+        </p>
+    </section>
+
+    <!-- Área principal do teste -->
+    <main class="quiz-card">
+
+        <!-- Barra de progresso (Será oculta no resultado) -->
+        <div class="progress-bar" id="progressBarContainer">
+            <div class="progress" id="progressBar"></div>
+        </div>
+
+        <!-- Conteúdo da pergunta -->
+        <section class="question-area" id="questionArea">
+
+            <!-- Lado esquerdo -->
+            <div class="question-content">
+                <span class="question-number" id="questionNumber">QUESTÃO 1</span>
+
+                <h2 id="questionText">
+                    <!-- O texto da pergunta será inserido aqui via JS -->
+                </h2>
+
+                <img
+                    class="question-image"
+                    id="questionImage"
+                    src=""
+                    alt="Ilustração da pergunta"
+                >
+            </div>
+
+            <!-- Lado direito -->
+            <div class="answers-wrapper">
+                
+                <!-- Container das alternativas -->
+                <div class="answers" id="answersContainer"></div>
+
+                <!-- Botões de navegação -->
+                <div class="navigation-buttons">
+                    
+                    <!-- Botão Anterior -->
+                    <button
+                        class="nav-button prev-button"
+                        id="prevButton"
+                        style="display: none;"
+                    >
+                        <span class="nav-icon">‹</span>
+                        <span>Anterior</span>
+                    </button>
+
+                    <!-- Botão Próximo -->
+                    <button
+                        class="nav-button next-button"
+                        id="nextButton"
+                    >
+                        <span class="nav-icon">›</span>
+                        <span>Próximo</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Tela de Resultado (Oculta por padrão) -->
+        <section class="result-area" id="resultArea" style="display: none;">
+            <h2 class="result-title">Parabéns! Você finalizou o teste de carreira!</h2>
+            <p class="result-subtitle">Áreas profissionais que mais se assemelham com o seu perfil:</p>
+
+            <div class="results-list" id="resultsList">
+                <!-- As 3 áreas/cursos serão renderizadas dinamicamente via JS -->
+            </div>
+
+            <div class="restart-container">
+                <button class="restart-button" id="restartButton">Recomeçar teste</button>
+            </div>
+        </section>
+
+    </main>
+    <!-- Script JS -->
+    <script src="/portal-PSG/js/teste-carreira.js"></script>
+</body>
+</html>

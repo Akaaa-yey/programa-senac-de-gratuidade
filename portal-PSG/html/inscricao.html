@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - Portal Livre Senac PSG</title>
+<link rel="stylesheet" href="/portal-PSG/css/global.css">
+<link rel="stylesheet" href="/portal-PSG/css/incricao.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                Portal <span class="highlight">Livre</span> <span class="psg-tag">PSG</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="editais.html">Editais Disponíveis</a></li>
+                <li><a href="teste-carreira.html">Teste de Carreira</a></li>
+                <li><a href="inscricao.html" class="active">Inscrição</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 class="inscricao-page-title">Ficha de Inscrição</h2>
+        
+        <div class="ficha-card-v2">
+            
+            <form onsubmit="event.preventDefault(); alert('Inscrição cadastrada com sucesso!'); window.location.href='index.html';">
+
+                <h3 class="ficha-section-title">Dados pessoais</h3>
+
+                <div class="ficha-grid cols-3">
+                    <div class="ficha-field-v2">
+                        <label>Nome completo</label>
+                        <input type="text" required placeholder="Digite seu nome completo">
+                    </div>
+                    <div class="ficha-field-v2">
+                        <label>CPF</label>
+                        <input type="text" required placeholder="000.000.000-00">
+                    </div>
+                    <div class="ficha-field-v2">
+                        <label>Data de nascimento</label>
+                        <input type="date" required>
+                    </div>
+                </div>
+
+                <div class="ficha-grid cols-4">
+                    <div class="ficha-field-v2 span-2">
+                        <label>Email</label>
+                        <input type="email" required placeholder="seu@email.com">
+                    </div>
+                    <div class="ficha-field-v2">
+                        <label>Celular</label>
+                        <input type="text" required placeholder="(00) 00000-0000">
+                    </div>
+                    <div class="ficha-field-v2">
+                        <label>Escolaridade</label>
+                        <select required>
+                            <option value="">Selecione</option>
+                            <option value="fundamental">Ensino Fundamental</option>
+                            <option value="medio">Ensino Médio</option>
+                            <option value="superior">Ensino Superior</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ficha-grid cols-2">
+                    <div class="ficha-field-v2">
+                        <label>Renda familiar</label>
+                        <input type="number" id="rendaTotal" placeholder="Ex: 3000" onblur="calcularRenda()">
+                        <a href="#" class="ficha-link-note">Não sabe a renda familiar?</a>
+                        <div id="resultadoRenda" class="resultado-renda-box"></div>
+                    </div>
+
+                    <div class="ficha-field-v2">
+                        <label>Quantas pessoas moram na casa?</label>
+                        <input type="number" id="numPessoas" placeholder="Ex: 4" onblur="calcularRenda()">
+                    </div>
+                </div>
+
+                <h3 class="ficha-section-title">Inscrição para o curso</h3>
+
+                <div class="ficha-grid cols-3">
+                    <div class="ficha-field-v2 span-3">
+                        <label>Curso</label>
+                        <select required>
+                            <option value="">Selecione o curso</option>
+                            <option value="desenvolvimento">Técnico em Desenvolvimento de Sistemas</option>
+                            <option value="gestao">Assistente de Recursos Humanos</option>
+                            <option value="gastronomia">Cozinheiro Profissional</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button type="submit" class="btn-primary btn-lg btn-full">Confirmar Inscrição</button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Portal Livre Senac. Todos os direitos reservados.</p>
+            <p>Programa Senac de Gratuidade - PSG</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

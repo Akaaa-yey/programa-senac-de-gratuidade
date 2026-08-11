@@ -1,0 +1,173 @@
+/* ================= VARIÁVEIS E RESET ================= */
+:root {
+    --senac-blue: #0A1AEB;
+    --senac-blue-dark: #0012B3;
+    --senac-orange: #FE8523;
+    --senac-orange-hover: #E06F15;
+    --text-dark: #2c3e50;
+    --text-light: #6c7a89;
+    --bg-light: #EAE7DC;
+    --bg-white: #ffffff;
+    --border-color: #e2e8f0;
+    --success-color: #10b981;
+    --danger-color: #ef4444;
+    --radius: 8px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+main.container {
+    flex: 1;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ================= CABEÇALHO (NAVBAR) - GLOBAL ================= */
+.navbar {
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--senac-blue);
+    text-decoration: none;
+}
+
+.logo .highlight {
+    color: var(--senac-orange);
+}
+
+.psg-tag {
+    background-color: var(--senac-blue);
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    vertical-align: middle;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s;
+    padding-bottom: 5px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--senac-orange);
+    border-bottom: 2px solid var(--senac-orange);
+}
+
+/* ================= BOTÕES GERAIS ================= */
+.btn-primary {
+    background-color: var(--senac-orange);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--senac-orange-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--senac-blue);
+    border: 2px solid var(--senac-blue);
+    padding: 8px 18px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-secondary:hover {
+    background-color: var(--senac-blue);
+    color: white;
+}
+
+.btn-lg {
+    padding: 14px 28px;
+    font-size: 1.05rem;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* ================= RODAPÉ (FOOTER) - GLOBAL ================= */
+footer {
+    background-color: var(--senac-blue-dark);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+}

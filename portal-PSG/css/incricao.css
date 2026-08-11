@@ -1,0 +1,114 @@
+/* ================= FICHA DE INSCRIÇÃO E RENDA ================= */
+.inscricao-page-title {
+    text-align: center;
+    color: var(--senac-orange);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 10px 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.inscricao-page-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 38px;
+    background-color: var(--senac-orange);
+    border-radius: 2px;
+}
+
+.ficha-card-v2 {
+    position: relative;
+    background: var(--bg-white);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.ficha-section-title {
+    color: var(--senac-blue);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.ficha-card-v2 .ficha-section-title:not(:first-child) {
+    margin-top: 30px;
+}
+
+.ficha-grid {
+    display: grid;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.ficha-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.ficha-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.ficha-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.ficha-grid .span-2 { grid-column: span 2; }
+.ficha-grid .span-3 { grid-column: span 3; }
+
+.ficha-field-v2 label {
+    display: block;
+    color: var(--senac-orange);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.ficha-field-v2 input,
+.ficha-field-v2 select {
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--bg-white);
+    border: 1.5px solid var(--senac-orange);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    outline: none;
+}
+
+.ficha-field-v2 input:focus,
+.ficha-field-v2 select:focus {
+    border-color: var(--senac-blue);
+}
+
+.ficha-link-note {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.78rem;
+    color: var(--senac-blue);
+    text-decoration: underline;
+}
+
+
+
+/* Ajuste automático para celulares/telas menores */
+@media (max-width: 992px) {
+    .ficha-card-v2 {
+        padding-right: 40px; /* Remove o espaço lateral em telas pequenas */
+    }
+    .ficha-ilustracao {
+        display: none; /* Oculta a ilustração em mobile para o formulário ficar limpo */
+    }
+}
+.resultado-renda-box {
+    margin-top: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .ficha-grid.cols-2,
+    .ficha-grid.cols-3,
+    .ficha-grid.cols-4 { grid-template-columns: 1fr; }
+    .ficha-grid .span-2,
+    .ficha-grid .span-3 { grid-column: span 1; }
+    .ficha-card-v2 { padding: 25px 20px; }
+}
