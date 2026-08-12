@@ -29,6 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    padding-top: 60px; /* Evita que a navbar fixa cubra o topo das páginas */
 }
 
 .container {
@@ -50,61 +51,79 @@ main.container {
 
 /* ================= CABEÇALHO (NAVBAR) - GLOBAL ================= */
 .navbar {
-    background-color: var(--bg-white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    position: sticky;
+    width: 100%;
+    height: 60px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #D9D9D9;
+    position: fixed;
     top: 0;
-    z-index: 1000;
+    left: 0;
+    z-index: 999;
 }
 
+.navbar .container,
 .nav-content {
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
 }
 
+/* Estilo da Logo com Imagem */
 .logo {
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: var(--senac-blue);
+    display: flex;
+    align-items: center;
+    gap: 8px;
     text-decoration: none;
+    height: 100%;
 }
 
-.logo .highlight {
-    color: var(--senac-orange);
+.logo-img {
+    height: 60px; /* Altura ideal para a navbar de 60px */
+    width: auto;
+    object-fit: contain;
 }
 
 .psg-tag {
     background-color: var(--senac-blue);
     color: white;
     font-size: 0.75rem;
-    padding: 2px 6px;
+    font-weight: 700;
+    padding: 3px 7px;
     border-radius: 4px;
-    vertical-align: middle;
+    line-height: 1;
 }
 
 .nav-links {
     display: flex;
     gap: 25px;
     list-style: none;
+    height: 100%;
+    align-items: center;
+}
+
+.nav-links li {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-dark);
+    color:#0A1AEB;
     font-weight: 500;
-    transition: color 0.3s;
-    padding-bottom: 5px;
+    transition: color 0.3s, border-color 0.3s;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid transparent;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--senac-orange);
-    border-bottom: 2px solid var(--senac-orange);
+    border-bottom-color: var(--senac-orange);
 }
-
 /* ================= BOTÕES GERAIS ================= */
 .btn-primary {
     background-color: var(--senac-orange);

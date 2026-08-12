@@ -1,8 +1,8 @@
-// 1. Array de dados com todas as 10 perguntas
+// 1. Array de dados com as 10 perguntas
 const perguntas = [
     {
         numero: "QUESTÃO 1",
-        pergunta: "Em um projeto em grupo, qual papel você naturally assume?",
+        pergunta: "Em um projeto em grupo, qual papel você assume naturalmente?",
         imagem: "/portal-PSG/img/pessoas-trabalhando.png",
         opcoes: [
             { texto: "O porta-voz, responsável por apresentar as ideias do grupo", valor: "design" },
@@ -54,7 +54,7 @@ const perguntas = [
         imagem: "/portal-PSG/img/pessoas-trabalhando.png",
         opcoes: [
             { texto: "O poder de se comunicar em qualquer idioma", valor: "design" },
-            { texto: "O poder de influenciar e persuadir pessoas.", valor: "corporativo" },
+            { texto: "O poder de influenciar e persuadir pessoas", valor: "corporativo" },
             { texto: "O poder de curar ou de entender os sentimentos dos outros", valor: "social" },
             { texto: "O poder de entender e controlar qualquer tecnologia", valor: "tech" },
             { texto: "O poder de construir qualquer coisa com a mente", valor: "operacional" }
@@ -93,7 +93,7 @@ const perguntas = [
             { texto: "Desorganização, falta de planejamento e desperdício de tempo", valor: "corporativo" },
             { texto: "Egoísmo, falta de empatia e injustiça social", valor: "social" },
             { texto: "Sistemas lentos, tecnologia que não funciona e informações incorretas", valor: "tech" },
-            { texto: "Projetos mal executados, falta de soluções práticas e coisas que poderiam ser melhor construídas.", valor: "operacional" }
+            { texto: "Projetos mal executados e falta de soluções práticas", valor: "operacional" }
         ]
     },
     {
@@ -105,7 +105,7 @@ const perguntas = [
             { texto: "Tempo é dinheiro", valor: "corporativo" },
             { texto: "Ajudar o próximo é a minha maior motivação", valor: "social" },
             { texto: "Existe uma solução lógica para todo problema", valor: "tech" },
-            { texto: "Se dá para imaginar, dá para criar.", valor: "operacional" }
+            { texto: "Se dá para imaginar, dá para criar", valor: "operacional" }
         ]
     },
     {
@@ -117,12 +117,12 @@ const perguntas = [
             { texto: "Suspense ou filmes sobre o mercado financeiro", valor: "corporativo" },
             { texto: "Histórias de superação ou com forte mensagem social", valor: "social" },
             { texto: "Ficção científica ou filmes com reviravoltas inteligentes", valor: "tech" },
-            { texto: "Ação, aventura ou filmes sobre grandes construções.", valor: "operacional" }
+            { texto: "Ação, aventura ou filmes sobre grandes construções", valor: "operacional" }
         ]
     }
 ];
 
-// Dados das áreas sugeridas para a tela final
+// Dados das áreas para a tela de resultado
 const detalhesAreas = {
     social: {
         titulo: "Saúde",
@@ -146,11 +146,11 @@ const detalhesAreas = {
     }
 };
 
-// 2. Variáveis de controle de estado
+// 2. Variáveis de estado
 let indiceAtual = 0;
 let respostasUsuario = {};
 
-// 3. Elementos do DOM
+// 3. Mapeamento de Elementos do DOM
 const elNumero = document.getElementById('questionNumber');
 const elPergunta = document.getElementById('questionText');
 const elImagem = document.getElementById('questionImage');
@@ -160,120 +160,160 @@ const elProgressBarContainer = document.getElementById('progressBarContainer');
 const elQuestionArea = document.getElementById('questionArea');
 const elResultArea = document.getElementById('resultArea');
 const elResultsList = document.getElementById('resultsList');
+const elQuizContent = document.getElementById('quizContent');
 
 const btnProximo = document.getElementById('nextButton');
 const btnAnterior = document.getElementById('prevButton');
 const btnRecomecar = document.getElementById('restartButton');
+const containerNavegacao = document.getElementById('navigationButtonsContainer') || (btnProximo ? btnProximo.parentElement : null);
 
-// 4. Função para carregar a questão na tela
+// 4. Função para carregar e renderizar a questão atual
 function carregarQuestao() {
     const q = perguntas[indiceAtual];
 
-    // Atualiza textos e imagens
-    elNumero.textContent = q.numero;
-    elPergunta.textContent = q.pergunta;
-    elImagem.src = q.imagem;
+    // Atualiza textos e imagem da questão
+    if (elNumero) elNumero.textContent = q.numero;
+    if (elPergunta) elPergunta.textContent = q.pergunta;
+    if (elImagem) elImagem.src = q.imagem;
 
     // Atualiza Barra de Progresso
-    const porcentagem = ((indiceAtual + 1) / perguntas.length) * 100;
-    elProgressBar.style.width = `${porcentagem}%`;
-
-    // Exibe ou esconde o botão "Anterior"
-    if (indiceAtual > 0) {
-        btnAnterior.style.display = 'flex';
-    } else {
-        btnAnterior.style.display = 'none';
+    if (elProgressBar) {
+        const porcentagem = ((indiceAtual + 1) / perguntas.length) * 100;
+        elProgressBar.style.width = `${porcentagem}%`;
     }
 
-    // Limpa alternativas anteriores e insere as novas
-    elRespostas.innerHTML = '';
-    q.opcoes.forEach((opcao) => {
-        const label = document.createElement('label');
-        label.className = 'answer';
-        label.innerHTML = `
-            <input type="radio" name="answer" value="${opcao.valor}" ${respostasUsuario[indiceAtual] === opcao.valor ? 'checked' : ''}>
-            <span>${opcao.texto}</span>
-        `;
-        elRespostas.appendChild(label);
+    // Controle do Botão "Anterior"
+    if (btnAnterior) {
+        if (indiceAtual > 0) {
+            btnAnterior.style.display = 'flex';
+        } else {
+            btnAnterior.style.display = 'none';
+        }
+    }
+
+    // Limpa e recria o container de alternativas
+    if (elRespostas) {
+        elRespostas.innerHTML = '';
+        q.opcoes.forEach((opcao) => {
+            const label = document.createElement('label');
+            label.className = 'answer';
+            
+            const estaSelecionado = respostasUsuario[indiceAtual] === opcao.valor;
+            
+            label.innerHTML = `
+                <input type="radio" name="answer" value="${opcao.valor}" ${estaSelecionado ? 'checked' : ''}>
+                <span>${opcao.texto}</span>
+            `;
+            elRespostas.appendChild(label);
+        });
+    }
+}
+
+// 5. Clique no Botão "Próximo"
+if (btnProximo) {
+    btnProximo.addEventListener('click', () => {
+        const opcaoSelecionada = document.querySelector('input[name="answer"]:checked');
+        
+        if (!opcaoSelecionada) {
+            alert("Por favor, selecione uma resposta antes de continuar!");
+            return;
+        }
+
+        // Salva a resposta selecionada
+        respostasUsuario[indiceAtual] = opcaoSelecionada.value;
+
+        // Avança a pergunta ou vai para o resultado
+        if (indiceAtual < perguntas.length - 1) {
+            indiceAtual++;
+            carregarQuestao();
+        } else {
+            exibirResultados();
+        }
     });
 }
 
-// 5. Clique no botão Próximo
-btnProximo.addEventListener('click', () => {
-    const opcaoSelecionada = document.querySelector('input[name="answer"]:checked');
-    
-    if (!opcaoSelecionada) {
-        alert("Por favor, selecione uma resposta!");
-        return;
-    }
-
-    // Salva a resposta do usuário
-    respostasUsuario[indiceAtual] = opcaoSelecionada.value;
-
-    if (indiceAtual < perguntas.length - 1) {
-        indiceAtual++;
-        carregarQuestao();
-    } else {
-        exibirResultados();
-    }
-});
-
-// 6. Clique no botão Anterior
-btnAnterior.addEventListener('click', () => {
-    if (indiceAtual > 0) {
-        indiceAtual--;
-        carregarQuestao();
-    }
-});
+// 6. Clique no Botão "Anterior"
+if (btnAnterior) {
+    btnAnterior.addEventListener('click', () => {
+        if (indiceAtual > 0) {
+            indiceAtual--;
+            carregarQuestao();
+        }
+    });
+}
 
 // 7. Função para calcular e exibir os resultados na tela final
 function exibirResultados() {
-    // Esconde o quiz e a barra de progresso
-    elQuestionArea.style.display = 'none';
-    elProgressBarContainer.style.display = 'none';
+    // Esconde todas as áreas do teste e botões
+    if (elQuizContent) elQuizContent.style.display = 'none';
+    if (elQuestionArea) elQuestionArea.style.display = 'none';
+    if (elProgressBarContainer) elProgressBarContainer.style.display = 'none';
+    if (containerNavegacao) containerNavegacao.style.display = 'none';
 
-    // Mostra a tela final
-    elResultArea.style.display = 'block';
+    // Exibe a tela de resultado e dispara confete
+    if (elResultArea) {
+        elResultArea.style.display = 'block';
+        
+        // Disparo da Animação de Confete
+        if (typeof confetti === 'function') {
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#112FE0', '#FF811C', '#FFFFFF']
+            });
+        }
+    }
 
-    // Mapeia e conta a pontuação por perfil
+    // Conta os pontos acumulados por categoria
     const pontuacao = {};
     Object.values(respostasUsuario).forEach(valor => {
         pontuacao[valor] = (pontuacao[valor] || 0) + 1;
     });
 
-    // Ordena os perfis mais votados
+    // Ordena as categorias mais votadas
     const perfisOrdenados = Object.keys(pontuacao).sort((a, b) => pontuacao[b] - pontuacao[a]);
 
-    // Garante que pelo menos 3 áreas apareçam (mesmo se o usuário não votou em todas)
+    // Garante que o Top 3 seja preenchido (mesmo com empates ou opções não marcadas)
     const todasAreas = ['social', 'design', 'corporativo', 'tech', 'operacional'];
     const top3 = [...new Set([...perfisOrdenados, ...todasAreas])].slice(0, 3);
 
-    // Renderiza os cards das 3 áreas
-    elResultsList.innerHTML = '';
-    top3.forEach(chave => {
-        const area = detalhesAreas[chave];
-        const cardHtml = `
-        <div class="result-card">
-        <h3>${area.titulo}</h3>
-        <p>${area.descricao}</p>
-        <a href="/portal-PSG/html/index.html">
-            <button class="search-course-btn">Pesquisar cursos da área</button>
-        </a>
-    </div>
-`;
-        elResultsList.innerHTML += cardHtml;
+    // Renderiza os cards na tela final (Design Laranja Limpo)
+    if (elResultsList) {
+        elResultsList.innerHTML = '';
+        top3.forEach(chave => {
+            const area = detalhesAreas[chave];
+            if (area) {
+                const cardHtml = `
+                    <div class="result-card">
+                        <h3>${area.titulo}</h3>
+                        <p>${area.descricao}</p>
+                    </div>
+                `;
+                elResultsList.innerHTML += cardHtml;
+            }
+        });
+    }
+}
+
+// 8. Clique no Botão "Recomeçar Teste"
+if (btnRecomecar) {
+    btnRecomecar.addEventListener('click', () => {
+        indiceAtual = 0;
+        respostasUsuario = {};
+
+        // Oculta tela de resultado
+        if (elResultArea) elResultArea.style.display = 'none';
+
+        // Restaura as exibições das perguntas e botões
+        if (elQuizContent) elQuizContent.style.display = 'flex';
+        if (elQuestionArea) elQuestionArea.style.display = 'grid';
+        if (elProgressBarContainer) elProgressBarContainer.style.display = 'block';
+        if (containerNavegacao) containerNavegacao.style.display = 'flex';
+
+        carregarQuestao();
     });
 }
 
-// 8. Clique no botão Recomeçar
-btnRecomecar.addEventListener('click', () => {
-    indiceAtual = 0;
-    respostasUsuario = {};
-    elResultArea.style.display = 'none';
-    elQuestionArea.style.display = 'grid';
-    elProgressBarContainer.style.display = 'block';
-    carregarQuestao();
-});
-
-// Inicializa a primeira questão
+// Inicializa a primeira pergunta ao carregar a página
 carregarQuestao();
