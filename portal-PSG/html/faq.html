@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Carreira</title>
+    <!-- Fontes -->
+    <link rel="stylesheet" href="../css/global.css">
+     <link rel="stylesheet" href="../css/faq.css">
+   <!-- Cole este link de fontes no <head> de TODAS as páginas -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lekton:wght@400;700&family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head> <!-- O HEAD AGORA ESTÁ FECHADO AQUI -->
+<body>
+   <!-- CABEÇALHO (NAVBAR) PADRONIZADO -->
+<header class="navbar">
+    <div class="container nav-content">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+            <img src="../img/senac-logo.png" alt="Logo SENAC" class="logo-img">
+            <span class="psg-tag">PSG</span>
+        </a>
+
+        <!-- Links de Navegação -->
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="editais.html">Editais Disponíveis</a></li>
+            <li><a href="teste-carreira.html">Teste de Carreira</a></li>
+            <li><a href="faq.html" class="active">FAQ</a></li>
+            <li class="login-item">
+                <a href="login.html" class="btn-nav-login">Entrar</a>
+            </li>
+        </ul>
+    </div>
+</header>
+    <main class="container">
+        <section class="faq-accordion">
+            <h2>Dúvidas sobre Renda e Documentos</h2>
+            
+            <details>
+                <summary>Qual é o limite de renda para participar?</summary>
+                <p>A renda per capita familiar não pode ultrapassar 2 salários mínimos federais.</p>
+            </details>
+
+            <details>
+                <summary>Como a IA analisa meus documentos?</summary>
+                <p>O sistema extrai os dados via OCR. Caso a imagem esteja embaçada ou ilegível, o documento será direcionado para análise humana pela equipe do SENAC.</p>
+            </details>
+        </section>
+
+        <section class="suporte-direto">
+            <h2>Ainda com dúvidas?</h2>
+            <p>Entre em contato com nossa central de ajuda.</p>
+            <a href="mailto:suporte.psg@pe.senac.br" class="btn-primary">Enviar E-mail para o Suporte</a>
+        </section>
+    </main>
+</body>
+</html>

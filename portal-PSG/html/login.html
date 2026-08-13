@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Carreira</title>
+    <!-- Fontes -->
+    <link rel="stylesheet" href="/portal-PSG/css/global.css">
+    <link rel="stylesheet" href="/portal-PSG/css/login.css">
+   <!-- Cole este link de fontes no <head> de TODAS as páginas -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lekton:wght@400;700&family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head> <!-- O HEAD AGORA ESTÁ FECHADO AQUI -->
+<body>
+    <header class="navbar">
+    <div class="container nav-content">
+        <a href="index.html" class="logo">
+            <img src="/portal-PSG/img/senac-logo.png" alt="Senac" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="editais.html">Editais Disponíveis</a></li>
+            <li><a href="teste-carreira.html" >Teste de Carreira</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="login.html" class="btn-primary btn-nav-login">Entrar</a></li>
+        </ul>
+    </div>
+</header>
+<body>
+    <main class="login-container">
+        <div class="login-card">
+            <img src="/portal-PSG/img/senac-logo.png" alt="Logo Senac" class="logo-login">
+            <h2>Acesso ao Portal PSG</h2>
+            <p>Faça login para acompanhar sua candidatura</p>
+            
+            <form action="/portal-PSG/html/index.html" method="GET">
+                <div class="input-group">
+                    <label for="cpf">CPF ou E-mail</label>
+                    <input type="text" id="cpf" name="cpf" required placeholder="Digite seu CPF ou e-mail">
+                </div>
+                
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" required placeholder="Sua senha secreta">
+                </div>
+
+                <div class="form-actions">
+                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                </div>
+
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+            
+            <div class="divider">ou</div>
+            
+            <button class="btn-secondary">Acesso por Código (SMS)</button>
+            
+           <!-- CRIAÇÃO DE CONTA (LINK CORRIGIDO) -->
+<div class="login-footer">
+    <p>Ainda não tem cadastro? <a href="inscricao.html">Crie sua conta</a></p>
+</div>
+        </div>
+    </main>
+</body>
+</html>

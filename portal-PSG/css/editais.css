@@ -187,3 +187,202 @@
     .filter-selects select { width: 100%; }
     .editais-main-title { font-size: 1.8rem; }
 }
+/* =======================================================
+   GRID DE CURSOS E CARTÕES (CARDS)
+======================================================= */
+
+/* Container que segura todos os cartões */
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+}
+
+/* Estilo principal de cada cartão */
+.course-card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #E5E7EB;
+}
+
+/* Efeito de flutuar ao passar o mouse no cartão */
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Cabeçalho do Cartão (Fundo Azul) */
+.course-header {
+    background-color: var(--senac-blue, #0A1AEB); /* Azul Senac */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    min-height: 80px;
+}
+
+/* Tag da área do curso (Gestão, Tecnologia, etc) no cabeçalho */
+.course-tag {
+    background-color: var(--senac-orange, #FE8523); /* Laranja Senac */
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* Corpo do Cartão (Onde ficam os textos) */
+.course-body {
+    padding: 24px 20px;
+    flex-grow: 1; /* Faz o cartão esticar para empurrar o footer pra baixo */
+    background-color: #FAFAFA;
+}
+
+/* Linhas de informação (Carga horária, Turno, etc) */
+.course-info p {
+    color: #4B5563;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    line-height: 1.4;
+}
+
+/* Ícones do FontAwesome dentro das informações */
+.course-info p i {
+    color: var(--senac-orange, #FE8523);
+    width: 24px;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-right: 8px;
+}
+
+.course-info strong {
+    color: #1F2937;
+    margin-right: 5px;
+}
+
+/* Rodapé do Cartão (Onde ficam os botões) */
+.course-footer {
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #E5E7EB;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Texto de vagas disponíveis */
+.vagas-tag {
+    color: #059669; /* Verde para passar sensação positiva/disponibilidade */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+/* =======================================================
+   RODAPÉ DO CARTÃO (BOTÕES LADO A LADO)
+======================================================= */
+
+.course-footer {
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-top: 1px solid #E5E7EB;
+    
+    /* Ativa o Grid e divide em 2 colunas de tamanhos iguais */
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 10px; 
+}
+
+/* Faz a tag de vagas ocupar a linha inteira acima dos botões */
+.vagas-tag {
+    grid-column: 1 / -1; 
+    
+    color: #059669;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Ajustes nos botões para dividirem bem o espaço */
+.course-footer .btn-primary,
+.btn-pdf-curso {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px 5px; /* Reduzido nas laterais para caber o texto */
+    font-size: 0.85rem; /* Fonte levemente ajustada */
+    font-weight: 700;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Cores do Botão de Inscrição */
+.course-footer .btn-primary {
+    background-color: var(--senac-orange, #FE8523);
+    color: #FFFFFF;
+    border: none;
+}
+
+.course-footer .btn-primary:hover {
+    background-color: #e6761c;
+}
+
+/* Cores do Botão PDF */
+.btn-pdf-curso {
+    background-color: transparent;
+    color: var(--senac-blue, #0A1AEB);
+    border: 2px solid var(--senac-blue, #0A1AEB);
+}
+
+.btn-pdf-curso:hover {
+    background-color: var(--senac-blue, #0A1AEB);
+    color: #FFFFFF;
+}
+
+/* =======================================================
+   RESPONSIVIDADE (CELULARES)
+======================================================= */
+@media (max-width: 480px) {
+    /* Em telas muito finas, volta a empilhar para os textos não ficarem espremidos */
+    .course-footer {
+        grid-template-columns: 1fr;
+    }
+}
+/* Remove a limitação de largura e o espaçamento lateral no main da tela de Editais */
+main.container {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Adiciona um pequeno padding interno apenas nos filtros e cards para não colarem 100% na borda da tela */
+.filter-container,
+.courses-grid {
+    padding-left: 20px;
+    padding-right: 20px;
+}

@@ -1,0 +1,33 @@
+.faq-accordion details {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.faq-accordion summary {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #004a8f; /* Azul Senac */
+    list-style: none;
+}
+
+.faq-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-accordion p {
+    margin-top: 10px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.suporte-direto {
+    margin-top: 40px;
+    text-align: center;
+    padding: 30px;
+    background-color: #eef5fb;
+    border-radius: 8px;
+}
