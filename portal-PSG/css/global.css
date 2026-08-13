@@ -110,7 +110,7 @@ main.container {
 
 .nav-links a {
     text-decoration: none;
-    color:#0A1AEB;
+    color: var(--senac-blue);
     font-weight: 500;
     transition: color 0.3s, border-color 0.3s;
     height: 100%;
@@ -124,6 +124,7 @@ main.container {
     color: var(--senac-orange);
     border-bottom-color: var(--senac-orange);
 }
+
 /* ================= BOTÕES GERAIS ================= */
 .btn-primary {
     background-color: var(--senac-orange);
@@ -189,4 +190,55 @@ footer p {
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
+}
+
+/* ==========================================================================
+   PADRONIZAÇÃO GLOBAL DO BOTÃO "ENTRAR" NA NAVBAR (FORÇADA)
+   ========================================================================== */
+
+/* Garante o alinhamento vertical e desgruda o botão do resto do menu */
+.navbar .nav-links li.login-item {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    margin-left: 10px !important; 
+}
+
+/* Visual imutável do botão "Entrar" */
+.navbar .nav-links .btn-nav-login {
+    background: linear-gradient(135deg, var(--senac-orange, #FE8523) 0%, #ff9d42 100%) !important;
+    color: #ffffff !important;
+    padding: 8px 24px !important;
+    width: auto !important;
+    border: none !important;
+    border-radius: 25px !important; /* Formato pílula elegante */
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.5px !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    line-height: 1 !important;
+    border-bottom: none !important; /* Remove a linha do menu */
+    box-shadow: 0 4px 12px rgba(254, 133, 35, 0.35) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Efeito Hover em todas as abas */
+.navbar .nav-links .btn-nav-login:hover {
+    background: linear-gradient(135deg, var(--senac-orange-hover, #E06F15) 0%, var(--senac-orange, #FE8523) 100%) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(254, 133, 35, 0.5) !important;
+    border-bottom: none !important;
+}
+
+/* Estado de Clique (Active) */
+.navbar .nav-links .btn-nav-login:active {
+    transform: translateY(0) scale(0.96) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 6px rgba(254, 133, 35, 0.3) !important;
 }

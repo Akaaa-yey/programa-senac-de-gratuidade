@@ -4,38 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editais Disponíveis - Portal Livre Senac PSG</title>
-    <!-- Correto para o index.html -->
-<link rel="stylesheet" href="/portal-PSG/css/global.css">
-<link rel="stylesheet" href="/portal-PSG/css/editais.css">
-    <!-- Cole este link de fontes no <head> de TODAS as páginas -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lekton:wght@400;700&family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/portal-PSG/css/global.css">
+    <link rel="stylesheet" href="/portal-PSG/css/editais.css">
+    
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lekton:wght@400;700&family=Lexend:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome (Necessário para os ícones funcionarem) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
+    <!-- NAVBAR -->
     <header class="navbar">
-    <div class="container nav-content">
-        <a href="index.html" class="logo">
-            <img src="/portal-PSG/img/senac-logo.png" alt="Senac" class="logo-img">
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="editais.html" class="active">Editais Disponíveis</a></li>
-            <li><a href="teste-carreira.html">Teste de Carreira</a></li>
-            <li><a href="inscricao.html">Inscrição</a></li>
-        </ul>
-    </div>
-</header>
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <img src="/portal-PSG/img/senac-logo.png" alt="Senac" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="editais.html" class="active">Editais Disponíveis</a></li>
+                <li><a href="teste-carreira.html">Teste de Carreira</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="login.html" class="btn-primary btn-nav-login">Entrar</a></li>
+            </ul>
+        </div>
+    </header>
 
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="container">
+        
+        <!-- BANNER DE EDITAIS -->
         <div class="editais-banner-wrapper">
-            <!-- Certifique-se de salvar a imagem com este nome na pasta /img -->
-            <img src="/portal-PSG/img/Programa de gratuitade.png" alt="Banner Editais Senac" class="editais-banner-img" onerror="this.style.display='none'">
+            <img src="/portal-PSG/img/Frame 103.svg" alt="Banner Editais Senac" class="editais-banner-img" onerror="this.style.display='none'">
             <div class="editais-header-box">
                 <h2 class="editais-main-title">Editais e Vagas disponíveis</h2>
                 <p class="editais-subtitle">Consulte os editais abertos, requisitos e o quantitativo de vagas para os cursos gratuitos.</p>
             </div>
         </div>
 
+        <!-- FILTROS E BUSCA -->
         <div class="filter-container">
             <div class="search-input-box">
                 <i class="fas fa-search"></i>
@@ -51,68 +61,76 @@
             </div>
         </div>
 
+        <!-- GRID DE CURSOS -->
         <div class="courses-grid" id="coursesGrid">
-    
-    <!-- Card 1: Exemplo de Curso -->
-    <div class="course-card">
-        <div class="course-header">
-            <h3 class="course-title" style="color: white; margin: 0; font-size: 1.15rem;">Assistente Administrativo</h3>
-            <span class="course-tag">Gestão</span>
-        </div>
-        <div class="course-body">
-            <div class="course-info">
-                <p><i class="fas fa-clock"></i> <strong>Carga Horária:</strong> 160h</p>
-                <p><i class="fas fa-calendar-alt"></i> <strong>Turno:</strong> Noturno</p>
-                <p><i class="fas fa-graduation-cap"></i> <strong>Requisito:</strong> Ensino Fundamental Completo</p>
+        
+            <!-- Card 1: Assistente Administrativo -->
+            <div class="course-card">
+                <div class="course-header">
+                    <h3 class="course-title" style="color: white; margin: 0; font-size: 1.15rem;">Assistente Administrativo</h3>
+                    <span class="course-tag">Gestão</span>
+                </div>
+                <div class="course-body">
+                    <div class="course-info">
+                        <p><i class="fas fa-clock"></i> <strong>Carga Horária:</strong> 160h</p>
+                        <p><i class="fas fa-calendar-alt"></i> <strong>Turno:</strong> Noturno</p>
+                        <p><i class="fas fa-graduation-cap"></i> <strong>Requisito:</strong> Ensino Fundamental Completo</p>
+                    </div>
+                </div>
+                <div class="course-footer">
+                    <span class="vagas-tag"><i class="fas fa-users"></i> 15 vagas disponíveis</span>
+                    <a href="inscricao.html" class="btn-primary">Inscreva-se</a>
+                    <!-- BOTÃO DO PDF ADICIONADO AQUI -->
+                    <a href="/portal-PSG/pdf/edital-adm.pdf" target="_blank" class="btn-pdf-curso">📄 Ver edital (PDF)</a>
+                </div>
             </div>
-        </div>
-        <div class="course-footer">
-            <span class="vagas-tag"><i class="fas fa-users"></i> 15 vagas disponíveis</span>
-            <a href="inscricao.html" class="btn-primary">Inscreva-se</a>
-        </div>
-    </div>
 
-    <!-- Card 2: Exemplo de Curso -->
-    <div class="course-card">
-        <div class="course-header">
-            <h3 class="course-title" style="color: white; margin: 0; font-size: 1.15rem;">Cabeleireiro</h3>
-            <span class="course-tag">Beleza</span>
-        </div>
-        <div class="course-body">
-            <div class="course-info">
-                <p><i class="fas fa-clock"></i> <strong>Carga Horária:</strong> 240h</p>
-                <p><i class="fas fa-calendar-alt"></i> <strong>Turno:</strong> Matutino</p>
-                <p><i class="fas fa-graduation-cap"></i> <strong>Requisito:</strong> 18 anos completos</p>
+            <!-- Card 2: Cabeleireiro -->
+            <div class="course-card">
+                <div class="course-header">
+                    <h3 class="course-title" style="color: white; margin: 0; font-size: 1.15rem;">Cabeleireiro</h3>
+                    <span class="course-tag">Beleza</span>
+                </div>
+                <div class="course-body">
+                    <div class="course-info">
+                        <p><i class="fas fa-clock"></i> <strong>Carga Horária:</strong> 240h</p>
+                        <p><i class="fas fa-calendar-alt"></i> <strong>Turno:</strong> Matutino</p>
+                        <p><i class="fas fa-graduation-cap"></i> <strong>Requisito:</strong> 18 anos completos</p>
+                    </div>
+                </div>
+                <div class="course-footer">
+                    <span class="vagas-tag"><i class="fas fa-users"></i> 8 vagas disponíveis</span>
+                    <a href="inscricao.html" class="btn-primary">Inscreva-se</a>
+                    <!-- BOTÃO DO PDF ADICIONADO AQUI -->
+                    <a href="/portal-PSG/pdf/edital-beleza.pdf" target="_blank" class="btn-pdf-curso">📄 Ver edital (PDF)</a>
+                </div>
             </div>
-        </div>
-        <div class="course-footer">
-            <span class="vagas-tag"><i class="fas fa-users"></i> 8 vagas disponíveis</span>
-            <a href="inscricao.html" class="btn-primary">Inscreva-se</a>
-        </div>
-    </div>
 
-    <!-- Card 3: Exemplo de Curso -->
-    <div class="course-card">
-        <div class="course-header">
-            <h3 class="course-title" style="color: white; margin: 0; font-size: 1.15rem;">Programador Web</h3>
-            <span class="course-tag">Tecnologia</span>
-        </div>
-        <div class="course-body">
-            <div class="course-info">
-                <p><i class="fas fa-clock"></i> <strong>Carga Horária:</strong> 200h</p>
-                <p><i class="fas fa-calendar-alt"></i> <strong>Turno:</strong> Vespertino</p>
-                <p><i class="fas fa-graduation-cap"></i> <strong>Requisito:</strong> Informática Básica</p>
+            <!-- Card 3: Programador Web -->
+            <div class="course-card">
+                <div class="course-header">
+                    <h3 class="course-title" style="color: white; margin: 0; font-size: 1.15rem;">Programador Web</h3>
+                    <span class="course-tag">Tecnologia</span>
+                </div>
+                <div class="course-body">
+                    <div class="course-info">
+                        <p><i class="fas fa-clock"></i> <strong>Carga Horária:</strong> 200h</p>
+                        <p><i class="fas fa-calendar-alt"></i> <strong>Turno:</strong> Vespertino</p>
+                        <p><i class="fas fa-graduation-cap"></i> <strong>Requisito:</strong> Informática Básica</p>
+                    </div>
+                </div>
+                <div class="course-footer">
+                    <span class="vagas-tag"><i class="fas fa-users"></i> 12 vagas disponíveis</span>
+                    <a href="inscricao.html" class="btn-primary">Inscreva-se</a>
+                    <!-- BOTÃO DO PDF ADICIONADO AQUI -->
+                    <a href="/portal-PSG/pdf/edital-tecnologia.pdf" target="_blank" class="btn-pdf-curso">📄 Ver edital (PDF)</a>
+                </div>
             </div>
-        </div>
-        <div class="course-footer">
-            <span class="vagas-tag"><i class="fas fa-users"></i> 12 vagas disponíveis</span>
-            <a href="inscricao.html" class="btn-primary">Inscreva-se</a>
-        </div>
-    </div>
 
-</div>
+        </div>
     </main>
 
+    <!-- FOOTER -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Portal Livre Senac. Todos os direitos reservados.</p>
@@ -120,6 +138,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <!-- SCRIPT CORRIGIDO -->
+    <script src="/portal-PSG/js/script.js"></script>
 </body>
 </html>

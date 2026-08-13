@@ -1,9 +1,9 @@
 /* ==========================================================================
-   TELA DE CRIAR CONTA (CADASTRO) - PORTAL PSG SENAC PE
+   TELA DE LOGIN (ALINHADA E PADRONIZADA COM A TELA DE CADASTRO)
    ========================================================================== */
 
-/* Centralização do Container na Tela */
-.register-wrapper {
+/* Container idêntico ao .register-wrapper */
+.login-wrapper {
     width: 100% !important;
     min-height: calc(100vh - 60px) !important;
     display: flex !important;
@@ -14,11 +14,11 @@
     box-sizing: border-box !important;
 }
 
-/* Card Amplo com Tamanho Idêntico ao Card do Login (680px) */
-.register-card {
+/* Card idêntico ao .register-card */
+.login-card {
     width: 100% !important;
-    max-width: 680px !important;
-    padding: 50px 48px !important;
+    max-width: 680px !important; /* Mesma largura de 680px */
+    padding: 50px 48px !important; /* Mesmo espaçamento interno */
     background-color: #ffffff !important;
     border-radius: 16px !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
@@ -27,35 +27,30 @@
     box-sizing: border-box !important;
 }
 
-.register-header {
+/* Header do Login */
+.login-header {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.register-header h2 {
+.login-header h2 {
     color: var(--senac-blue, #0A1AEB);
     font-size: 1.75rem;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-.register-header p {
+.login-header p {
     color: var(--text-light, #6c7a89);
     font-size: 0.95rem;
     line-height: 1.4;
 }
 
-/* Form e Grid de 2 Colunas */
-.register-form {
+/* Formulário e Inputs */
+.login-form {
     display: flex;
     flex-direction: column;
     gap: 22px;
-}
-
-.form-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
 }
 
 .input-group {
@@ -64,14 +59,28 @@
     gap: 6px;
 }
 
-.input-group.full-width {
-    grid-column: span 2;
+.label-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .input-group label {
     font-weight: 600;
     font-size: 0.88rem;
     color: var(--text-dark, #2c3e50);
+}
+
+.forgot-link {
+    font-size: 0.8rem;
+    color: var(--senac-blue, #0A1AEB);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.forgot-link:hover {
+    color: var(--senac-orange, #FE8523);
+    text-decoration: underline;
 }
 
 .input-group input {
@@ -92,44 +101,8 @@
     box-shadow: 0 0 0 4px rgba(10, 26, 235, 0.12);
 }
 
-/* Checkboxes e Requisitos PSG */
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 6px;
-}
-
-.checkbox-container {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 0.88rem;
-    color: var(--text-dark, #2c3e50);
-    cursor: pointer;
-    line-height: 1.4;
-}
-
-.checkbox-container input {
-    margin-top: 2px;
-    width: 16px;
-    height: 16px;
-    accent-color: var(--senac-blue, #0A1AEB);
-    cursor: pointer;
-}
-
-.checkbox-container a {
-    color: var(--senac-blue, #0A1AEB);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.checkbox-container a:hover {
-    text-decoration: underline;
-}
-
-/* Botão Cadastrar */
-.register-form .btn-submit {
+/* Botão de Submit */
+.login-form .btn-submit {
     width: 100% !important;
     background: linear-gradient(135deg, var(--senac-orange, #FE8523) 0%, #ff9d42 100%) !important;
     color: #ffffff !important;
@@ -144,14 +117,53 @@
     margin-top: 10px !important;
 }
 
-.register-form .btn-submit:hover {
+.login-form .btn-submit:hover {
     background: linear-gradient(135deg, var(--senac-orange-hover, #E06F15) 0%, var(--senac-orange, #FE8523) 100%) !important;
     transform: translateY(-2px) !important;
     box-shadow: 0 6px 18px rgba(254, 133, 35, 0.45) !important;
 }
 
+/* Divisor e Botão OTP */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+
+.divider span {
+    padding: 0 12px;
+    color: var(--text-light, #6c7a89);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.btn-otp {
+    width: 100% !important;
+    background-color: transparent !important;
+    color: var(--senac-blue, #0A1AEB) !important;
+    border: 2px solid var(--senac-blue, #0A1AEB) !important;
+    padding: 12px !important;
+    border-radius: var(--radius, 8px) !important;
+    font-size: 0.9rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-otp:hover {
+    background-color: rgba(10, 26, 235, 0.05) !important;
+}
+
 /* Rodapé do Card */
-.register-footer {
+.login-footer {
     text-align: center;
     margin-top: 28px;
     padding-top: 20px;
@@ -160,28 +172,20 @@
     color: var(--text-light, #6c7a89);
 }
 
-.register-footer a {
+.login-footer a {
     color: var(--senac-blue, #0A1AEB);
     font-weight: 700;
     text-decoration: none;
 }
 
-.register-footer a:hover {
+.login-footer a:hover {
     color: var(--senac-orange, #FE8523);
     text-decoration: underline;
 }
 
-/* Adaptação para Telas Menores (Celulares) */
+/* Adaptação Mobile */
 @media (max-width: 640px) {
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .input-group.full-width {
-        grid-column: span 1;
-    }
-
-    .register-card {
+    .login-card {
         padding: 32px 20px !important;
     }
 }
