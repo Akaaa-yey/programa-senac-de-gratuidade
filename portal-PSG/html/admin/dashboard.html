@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Painel Administrativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body>
+    <!-- Admin Navbar -->
+    <nav class="admin-navbar">
+        <div class="admin-navbar-container">
+            <div class="admin-navbar-brand">
+                <span class="admin-logo">
+                    <i class="fas fa-shield-alt"></i> Painel ADM
+                </span>
+            </div>
+            <div class="admin-nav-links">
+                <a href="dashboard.html" active="active">Dashboard</a>
+                <a href="editais.html">Editais</a>
+                <a href="triagem.html">Triagem</a>
+                <a href="usuarios.html">Usuários</a>
+                <button class="btn-nav-logout" onclick="adminLogout()">Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-main-content">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <h3>Menu Principal</h3>
+                    <ul>
+                        <li><a href="dashboard.html" class="active"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                        <li><a href="editais.html"><i class="fas fa-file-alt"></i> Editais</a></li>
+                        <li><a href="triagem.html"><i class="fas fa-search"></i> Triagem</a></li>
+                        <li><a href="usuarios.html"><i class="fas fa-users"></i> Usuários</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3>Relatórios</h3>
+                    <ul>
+                        <li><a href="#relatorios-editais"><i class="fas fa-chart-bar"></i> Relatórios Editais</a></li>
+                        <li><a href="#relatorios-candidatos"><i class="fas fa-list"></i> Candidatos</a></li>
+                    </ul>
+                </div>
+
+                <div class="menu-section">
+                    <h3>Configurações</h3>
+                    <ul>
+                        <li><a href="#config-sistema"><i class="fas fa-cogs"></i> Sistema</a></li>
+                        <li><a href="#config-notificacoes"><i class="fas fa-bell"></i> Notificações</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Dashboard Content -->
+        <div class="admin-container">
+            <!-- Header -->
+            <div class="admin-header">
+                <h1>Dashboard</h1>
+                <p>Bem-vindo, <span id="admin-name">Administrador</span></p>
+            </div>
+
+            <!-- KPI Cards -->
+            <section class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-icon blue">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Editais Ativos</h3>
+                        <p class="kpi-number" id="editais-ativos">0</p>
+                        <small>editais abertos</small>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon orange">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Candidaturas</h3>
+                        <p class="kpi-number" id="total-candidaturas">0</p>
+                        <small>inscrições totais</small>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon green">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Aprovadas</h3>
+                        <p class="kpi-number" id="aprovadas">0</p>
+                        <small>candidaturas aprovadas</small>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon red">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <div class="kpi-content">
+                        <h3>Pendentes</h3>
+                        <p class="kpi-number" id="pendentes">0</p>
+                        <small>aguardando triagem</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-grid">
+                <div class="chart-card">
+                    <h2>Candidaturas por Edital</h2>
+                    <div id="chart-editais" class="chart-placeholder">
+                        <i class="fas fa-chart-bar"></i>
+                        Carregando gráfico...
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h2>Status de Candidaturas</h2>
+                    <div id="chart-status" class="chart-placeholder">
+                        <i class="fas fa-chart-pie"></i>
+                        Carregando gráfico...
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="recent-activity">
+                <h2>Atividade Recente</h2>
+                <div class="activity-list" id="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>Novo candidato registrado</strong></p>
+                            <small>5 minutos atrás</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h2>Ações Rápidas</h2>
+                <div class="actions-grid">
+                    <a href="editais.html" class="action-card">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Lançar Novo Edital</span>
+                    </a>
+                    <a href="triagem.html" class="action-card">
+                        <i class="fas fa-search"></i>
+                        <span>Fazer Triagem</span>
+                    </a>
+                    <a href="usuarios.html" class="action-card">
+                        <i class="fas fa-users"></i>
+                        <span>Gerenciar Usuários</span>
+                    </a>
+                    <a href="#relatorios" class="action-card">
+                        <i class="fas fa-download"></i>
+                        <span>Baixar Relatórios</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/admin.js"></script>
+</body>
+</html>

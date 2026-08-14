@@ -7,7 +7,8 @@
 
     <title>Programa Senac de Gratuidade</title>
 
-    <link rel="stylesheet" href="/portal-PSG/css/home.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/home.css">
 
     <!-- Fonte -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,23 +21,27 @@
          NAVBAR
     ================================================== -->
     <header class="navbar">
-        <div class="navbar-container">
-            <a href="#" class="logo">
-                <img
-                    src="/portal-PSG/assets/Logo_Senac.png"
-                    alt="Senac"
-                >
+        <div class="container nav-content">
+            <a href="home.html" class="logo">
+                <img src="../img/senac-logo.png" alt="Logo SENAC" class="logo-img">
             </a>
 
-            <nav class="menu">
-                <a href="#">Início</a>
-                <a href="#">Editais</a>
-                <a href="#">Inscreva-se</a>
-                <a href="#">Teste de carreira</a>
-            </nav>
+            <button class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
+            <ul class="nav-links">
+                <li><a href="home.html" class="active">Início</a></li>
+                <li><a href="editais.html">Editais Disponíveis</a></li>
+                <li><a href="teste-carreira.html">Teste de Carreira</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li class="login-item">
+                    <a href="login.html" class="btn-nav-login">Entrar</a>
+                </li>
+            </ul>
         </div>
-
     </header>
 
 
@@ -49,7 +54,7 @@
         <section class="banner-home">
 
             <img
-                src="/portal-PSG/assets/HomePage 1.svg"
+                src="../assets/HomePage 1.svg"
                 class="banner-img"
                 alt="Programa Senac de Gratuidade"
             >
@@ -145,7 +150,7 @@
                 <!-- LADO DIREITO -->
                 <div class="regras-direita">
                     <img
-                        src="/portal-PSG/assets/MulherLupaHome.svg"
+                        src="../assets/MulherLupaHome.svg"
                         alt="Mulher segurando uma lupa"
                     >
                 </div>
@@ -295,7 +300,7 @@
 
   <div class="bloco-inscricao">
     <div class="conteudo-inscricao">
-      <img src="caminho/da/sua/imagem-binoculo.png" alt="Ilustração com binóculo" class="img-binoculo">
+      <img src="../assets/binoculo.svg" alt="Ilustração com binóculo" class="img-binoculo">
       
       <div class="texto-e-botao">
         <h2>Quero me inscrever!</h2>
@@ -313,7 +318,7 @@
         <a href="#teste" class="btn-laranja btn-teste">Faça um teste de carreira!</a>
       </div>
       
-      <img src="caminho/da/sua/imagem-pessoas.png" alt="Ilustração pessoas estudando" class="img-pessoas">
+      <img src="../assets/pessoas-estudando.svg" alt="Ilustração pessoas estudando" class="img-pessoas">
     </div>
   </div>
 
@@ -339,7 +344,7 @@
     <!-- ==================================================
          JAVASCRIPT
     ================================================== -->
-    <script src="/portal-PSG/js/script.js"></script>
+    <script src="../js/script.js"></script>
 
 </body>
 

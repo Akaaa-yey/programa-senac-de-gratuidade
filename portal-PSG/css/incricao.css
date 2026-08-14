@@ -10,7 +10,7 @@
     justify-content: center !important;
     align-items: center !important;
     padding: 50px 20px !important;
-    background: linear-gradient(135deg, #f0f4f9 0%, #e2e8f0 100%);
+    background-color: var(--bg-light, #EAE7DC) !important;
     box-sizing: border-box !important;
 }
 

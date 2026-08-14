@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triagem - Painel Administrativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body>
+    <!-- Admin Navbar -->
+    <nav class="admin-navbar">
+        <div class="admin-navbar-container">
+            <div class="admin-navbar-brand">
+                <span class="admin-logo">
+                    <i class="fas fa-shield-alt"></i> Painel ADM
+                </span>
+            </div>
+            <div class="admin-nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="editais.html">Editais</a>
+                <a href="triagem.html" active="active">Triagem</a>
+                <a href="usuarios.html">Usuários</a>
+                <button class="btn-nav-logout" onclick="adminLogout()">Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-main-content">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <h3>Menu Principal</h3>
+                    <ul>
+                        <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                        <li><a href="editais.html"><i class="fas fa-file-alt"></i> Editais</a></li>
+                        <li><a href="triagem.html" class="active"><i class="fas fa-search"></i> Triagem</a></li>
+                        <li><a href="usuarios.html"><i class="fas fa-users"></i> Usuários</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Triagem Content -->
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1>Triagem de Candidaturas</h1>
+                <p>Revise e valide documentos dos candidatos</p>
+            </div>
+
+            <!-- Filters -->
+            <section class="triagem-filters">
+                <div class="filter-group">
+                    <label for="filter-edital">Edital</label>
+                    <select id="filter-edital">
+                        <option value="">Todos os Editais</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-status">Status</label>
+                    <select id="filter-status">
+                        <option value="">Todos</option>
+                        <option value="pendente">Pendente</option>
+                        <option value="em_analise">Em Análise</option>
+                        <option value="aprovada">Aprovada</option>
+                        <option value="recusada">Recusada</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-documento">Tipo de Documento</label>
+                    <select id="filter-documento">
+                        <option value="">Todos</option>
+                        <option value="rg">RG</option>
+                        <option value="comprovante_renda">Comprovante de Renda</option>
+                        <option value="diploma">Diploma</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-secondary" onclick="resetFilters()">Limpar Filtros</button>
+            </section>
+
+            <!-- Candidaturas para Triagem -->
+            <section class="triagem-section">
+                <h2>Candidaturas Aguardando Triagem</h2>
+                
+                <div class="triagem-list" id="triagem-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Document Review Modal -->
+    <div id="review-modal" class="modal">
+        <div class="modal-content modal-lg">
+            <span class="close">&times;</span>
+            <h2>Triagem de Candidatura</h2>
+
+            <div class="review-container">
+                <!-- Candidato Info -->
+                <div class="candidato-info">
+                    <h3 id="review-candidato-nome">Nome do Candidato</h3>
+                    <p><strong>Email:</strong> <span id="review-candidato-email"></span></p>
+                    <p><strong>Edital:</strong> <span id="review-candidato-edital"></span></p>
+                    <p><strong>Curso:</strong> <span id="review-candidato-curso"></span></p>
+                </div>
+
+                <!-- Document Review -->
+                <div class="document-review">
+                    <h3>Documentos</h3>
+                    
+                    <!-- RG -->
+                    <div class="document-item">
+                        <div class="document-header">
+                            <h4><i class="fas fa-id-card"></i> RG / Identidade</h4>
+                            <span class="doc-status" id="doc-rg-status">Pendente</span>
+                        </div>
+                        <div class="document-preview">
+                            <img id="doc-rg-preview" src="" alt="RG" style="max-width: 100%; max-height: 300px;">
+                        </div>
+                        <div class="document-actions">
+                            <label><input type="radio" name="rg-status" value="aprovado"> Aprovar</label>
+                            <label><input type="radio" name="rg-status" value="recusar"> Recusar</label>
+                            <textarea placeholder="Motivo (se recusar)" id="rg-motivo" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Comprovante de Renda -->
+                    <div class="document-item">
+                        <div class="document-header">
+                            <h4><i class="fas fa-file-pdf"></i> Comprovante de Renda</h4>
+                            <span class="doc-status" id="doc-comprovante-status">Pendente</span>
+                        </div>
+                        <div class="document-preview">
+                            <embed id="doc-comprovante-preview" src="" type="application/pdf" style="width: 100%; height: 400px;">
+                        </div>
+                        <div class="document-actions">
+                            <label><input type="radio" name="comprovante-status" value="aprovado"> Aprovar</label>
+                            <label><input type="radio" name="comprovante-status" value="recusar"> Recusar</label>
+                            <textarea placeholder="Motivo (se recusar)" id="comprovante-motivo" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Diploma -->
+                    <div class="document-item">
+                        <div class="document-header">
+                            <h4><i class="fas fa-certificate"></i> Diploma / Certificado</h4>
+                            <span class="doc-status" id="doc-diploma-status">Pendente</span>
+                        </div>
+                        <div class="document-preview">
+                            <img id="doc-diploma-preview" src="" alt="Diploma" style="max-width: 100%; max-height: 300px;">
+                        </div>
+                        <div class="document-actions">
+                            <label><input type="radio" name="diploma-status" value="aprovado"> Aprovar</label>
+                            <label><input type="radio" name="diploma-status" value="recusar"> Recusar</label>
+                            <textarea placeholder="Motivo (se recusar)" id="diploma-motivo" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Assistance (if available) -->
+                <div class="ai-assistance">
+                    <h3><i class="fas fa-brain"></i> Assistência IA</h3>
+                    <div id="ai-results" class="ai-results">
+                        <p>Analisando documentos...</p>
+                    </div>
+                </div>
+
+                <!-- Final Decision -->
+                <div class="final-decision">
+                    <h3>Decisão Final</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="final-status">Status da Candidatura</label>
+                            <select id="final-status">
+                                <option value="">Selecione...</option>
+                                <option value="aprovada">Aprovar Candidatura</option>
+                                <option value="recusada">Recusar Candidatura</option>
+                                <option value="pendente">Deixar Pendente</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="observacoes">Observações Gerais</label>
+                        <textarea id="observacoes" rows="4" placeholder="Adicione observações sobre essa candidatura..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="save-triagem">Salvar Decisão</button>
+                    <button class="btn btn-secondary" onclick="closeModal('review-modal')">Cancelar</button>
+                    <button class="btn btn-outline" id="next-candidato">Próximo Candidato →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/admin.js"></script>
+</body>
+</html>

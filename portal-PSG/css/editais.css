@@ -4,385 +4,281 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
+
 .editais-banner-img {
     display: block;
     width: 100%;
     max-width: 100%;
-    height: 420px;           /* Altura fixa menor (você pode testar 200px ou 250px) */
-    object-fit: cover;       /* Corta as bordas superior/inferior de forma limpa para não achatar */
-    object-position: center; /* Mantém o centro do banner em foco */
-    margin: 0 auto 25px;
-    border-radius: var(--radius);
-}
-.editais-header-box {
-    margin-bottom: 30px;
-}
-
-.editais-main-title {
-    color: var(--senac-orange);
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.editais-main-title::before {
-    content: '';
-    display: inline-block;
-    width: 5px;
-    height: 35px;
-    background-color: var(--senac-orange);
-    border-radius: 2px;
-}
-
-.editais-subtitle {
-    color: var(--senac-blue);
-    font-size: 1rem;
-    font-weight: 500;
-    max-width: 700px;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    object-position: center;
     margin: 0 auto;
+    border-radius: var(--radius);
 }
 
 .filter-container {
-    background: var(--bg-white);
-    padding: 20px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+    background: linear-gradient(135deg, var(--senac-blue) 0%, #0010a0 100%);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(10, 26, 235, 0.2);
     display: flex;
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .search-input-box {
     flex: 1;
-    min-width: 280px;
+    min-width: 300px;
     position: relative;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    padding: 0 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .search-input-box i {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-light);
+    color: var(--senac-blue);
+    font-size: 1.1rem;
+    margin-right: 12px;
 }
 
 .search-input-box input {
     width: 100%;
-    padding: 12px 15px 12px 40px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
+    padding: 14px 0;
+    border: none;
+    border-radius: 8px;
     font-size: 1rem;
     outline: none;
+    background: transparent;
+    color: var(--text-dark);
+}
+
+.search-input-box input::placeholder {
+    color: #999;
 }
 
 .filter-selects {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
 .filter-selects select {
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
+    padding: 12px 18px;
+    border: 2px solid white;
+    border-radius: 8px;
     font-size: 0.95rem;
     outline: none;
-    background-color: var(--bg-white);
+    background-color: transparent;
+    color: white;
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.filter-selects select:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter-selects select option {
+    background-color: var(--senac-blue);
+    color: white;
 }
 
 /* ================= GRID DE CURSOS ================= */
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
 }
 
 .course-card {
-    background: var(--bg-white);
-    border-radius: var(--radius);
+    background: white;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #e5e7eb;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--border-color);
 }
 
 .course-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .course-header {
     background-color: var(--senac-blue);
     color: white;
-    padding: 15px 20px;
+    padding: 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.course-tag {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.course-body {
-    padding: 20px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.course-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--senac-blue);
-    margin-bottom: 10px;
-}
-
-.course-info {
-    margin-bottom: 15px;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.course-info i {
-    width: 20px;
-    color: var(--senac-orange);
-}
-
-.course-footer {
-    padding: 15px 20px;
-    border-top: 1px solid var(--border-color);
-    background-color: #f8fafc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.vagas-tag {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--success-color);
-}
-
-@media (max-width: 768px) {
-    .filter-container { flex-direction: column; }
-    .filter-selects { flex-direction: column; width: 100%; }
-    .filter-selects select { width: 100%; }
-    .editais-main-title { font-size: 1.8rem; }
-}
-/* =======================================================
-   GRID DE CURSOS E CARTÕES (CARDS)
-======================================================= */
-
-/* Container que segura todos os cartões */
-.courses-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-    margin-bottom: 60px;
-}
-
-/* Estilo principal de cada cartão */
-.course-card {
-    background-color: #FFFFFF;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #E5E7EB;
-}
-
-/* Efeito de flutuar ao passar o mouse no cartão */
-.course-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Cabeçalho do Cartão (Fundo Azul) */
-.course-header {
-    background-color: var(--senac-blue, #0A1AEB); /* Azul Senac */
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 15px;
-    min-height: 80px;
-}
-
-/* Tag da área do curso (Gestão, Tecnologia, etc) no cabeçalho */
-.course-tag {
-    background-color: var(--senac-orange, #FE8523); /* Laranja Senac */
-    color: #FFFFFF;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 5px 12px;
-    border-radius: 20px;
-    white-space: nowrap;
-}
-
-/* Corpo do Cartão (Onde ficam os textos) */
-.course-body {
-    padding: 24px 20px;
-    flex-grow: 1; /* Faz o cartão esticar para empurrar o footer pra baixo */
-    background-color: #FAFAFA;
-}
-
-/* Linhas de informação (Carga horária, Turno, etc) */
-.course-info p {
-    color: #4B5563;
-    font-size: 0.95rem;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    line-height: 1.4;
-}
-
-/* Ícones do FontAwesome dentro das informações */
-.course-info p i {
-    color: var(--senac-orange, #FE8523);
-    width: 24px;
-    font-size: 1.1rem;
-    text-align: center;
-    margin-right: 8px;
-}
-
-.course-info strong {
-    color: #1F2937;
-    margin-right: 5px;
-}
-
-/* Rodapé do Cartão (Onde ficam os botões) */
-.course-footer {
-    padding: 20px;
-    background-color: #FFFFFF;
-    border-top: 1px solid #E5E7EB;
-    display: flex;
-    flex-direction: column;
     gap: 12px;
 }
 
-/* Texto de vagas disponíveis */
-.vagas-tag {
-    color: #059669; /* Verde para passar sensação positiva/disponibilidade */
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 4px;
+.course-title {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.course-tag {
+    background: var(--senac-orange);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.course-body {
+    padding: 20px 18px;
+    flex: 1;
+}
+
+.course-info {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     gap: 8px;
 }
-/* =======================================================
-   RODAPÉ DO CARTÃO (BOTÕES LADO A LADO)
-======================================================= */
+
+.course-info p {
+    color: #666;
+    font-size: 0.85rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.course-info i {
+    color: var(--senac-orange);
+    width: 16px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.course-info strong {
+    color: #333;
+}
 
 .course-footer {
-    padding: 20px;
-    background-color: #FFFFFF;
-    border-top: 1px solid #E5E7EB;
-    
-    /* Ativa o Grid e divide em 2 colunas de tamanhos iguais */
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 10px; 
+    padding: 16px 18px;
+    border-top: 1px solid #e5e7eb;
+    background: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-/* Faz a tag de vagas ocupar a linha inteira acima dos botões */
 .vagas-tag {
-    grid-column: 1 / -1; 
-    
-    color: #059669;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-/* Ajustes nos botões para dividirem bem o espaço */
-.course-footer .btn-primary,
-.btn-pdf-curso {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10px 5px; /* Reduzido nas laterais para caber o texto */
-    font-size: 0.85rem; /* Fonte levemente ajustada */
+    font-size: 0.8rem;
     font-weight: 700;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    color: #059669;
+    text-align: center;
+    padding: 6px 0;
 }
 
-/* Cores do Botão de Inscrição */
-.course-footer .btn-primary {
-    background-color: var(--senac-orange, #FE8523);
-    color: #FFFFFF;
+.course-footer a {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s;
     border: none;
+    cursor: pointer;
+}
+
+.course-footer .btn-primary {
+    background-color: var(--senac-orange);
+    color: white;
 }
 
 .course-footer .btn-primary:hover {
     background-color: #e6761c;
 }
 
-/* Cores do Botão PDF */
 .btn-pdf-curso {
-    background-color: transparent;
-    color: var(--senac-blue, #0A1AEB);
-    border: 2px solid var(--senac-blue, #0A1AEB);
+    background-color: white;
+    color: var(--senac-blue);
+    border: 1.5px solid var(--senac-blue);
 }
 
 .btn-pdf-curso:hover {
-    background-color: var(--senac-blue, #0A1AEB);
-    color: #FFFFFF;
+    background-color: #f0f4f9;
 }
 
-/* =======================================================
-   RESPONSIVIDADE (CELULARES)
-======================================================= */
-@media (max-width: 480px) {
-    /* Em telas muito finas, volta a empilhar para os textos não ficarem espremidos */
-    .course-footer {
+/* ================= RESPONSIVIDADE ================= */
+@media (max-width: 768px) {
+    .courses-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-input-box {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .filter-selects {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .filter-selects select {
+        flex: 1;
+        min-width: 150px;
     }
 }
-/* Remove a limitação de largura e o espaçamento lateral no main da tela de Editais */
-main.container {
-    max-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+
+@media (max-width: 640px) {
+    .filter-container {
+        padding: 20px;
+    }
+
+    .search-input-box {
+        padding: 0 16px;
+    }
+
+    .search-input-box input {
+        font-size: 16px;
+    }
+
+    .course-header {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .course-title {
+        width: 100%;
+    }
 }
 
-/* Adiciona um pequeno padding interno apenas nos filtros e cards para não colarem 100% na borda da tela */
-.filter-container,
-.courses-grid {
-    padding-left: 20px;
-    padding-right: 20px;
+/* ================= CONTAINER PRINCIPAL ================= */
+main.container {
+    max-width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }

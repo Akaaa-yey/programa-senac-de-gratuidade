@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Portal PSG Pernambuco</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/privado.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <i class="fas fa-graduation-cap"></i> Portal PSG
+                </span>
+            </div>
+            <div class="nav-links">
+                <a href="acompanhe.html">Acompanhe</a>
+                <a href="inscreva-se.html">Inscreva-se</a>
+                <a href="perfil.html" active="active">Perfil</a>
+                <button class="btn-nav-login" onclick="logout()">Sair</button>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header Section -->
+            <section class="section-header">
+                <h1>Meu Perfil</h1>
+                <p>Gerencie suas informações pessoais</p>
+            </section>
+
+            <!-- Profile Content -->
+            <div class="profile-wrapper">
+                <!-- Profile Card -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="profile-name">Carregando...</h2>
+                            <p id="profile-email"></p>
+                            <p id="profile-status" class="profile-status">Ativo</p>
+                        </div>
+                    </div>
+
+                    <!-- Tabs -->
+                    <div class="profile-tabs">
+                        <button class="tab-btn active" data-tab="pessoais">Informações Pessoais</button>
+                        <button class="tab-btn" data-tab="contato">Contato</button>
+                        <button class="tab-btn" data-tab="endereco">Endereço</button>
+                        <button class="tab-btn" data-tab="seguranca">Segurança</button>
+                    </div>
+
+                    <!-- Tab Contents -->
+                    <form id="profile-form" class="profile-form">
+                        <!-- Personal Info Tab -->
+                        <div id="pessoais" class="tab-content active">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cpf">CPF</label>
+                                <input type="text" id="cpf" name="cpf" required disabled>
+                            </div>
+                            <div class="form-group">
+                                <label for="data_nascimento">Data de Nascimento</label>
+                                <input type="date" id="data_nascimento" name="data_nascimento" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="rg">RG</label>
+                                <input type="text" id="rg" name="rg">
+                            </div>
+                            <div class="form-group">
+                                <label for="profissao">Profissão</label>
+                                <input type="text" id="profissao" name="profissao">
+                            </div>
+                        </div>
+
+                        <!-- Contact Tab -->
+                        <div id="contato" class="tab-content">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="celular">Celular</label>
+                                <input type="tel" id="celular" name="celular">
+                            </div>
+                        </div>
+
+                        <!-- Address Tab -->
+                        <div id="endereco" class="tab-content">
+                            <div class="form-group">
+                                <label for="logradouro">Logradouro</label>
+                                <input type="text" id="logradouro" name="logradouro">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="numero">Número</label>
+                                    <input type="text" id="numero" name="numero">
+                                </div>
+                                <div class="form-group">
+                                    <label for="complemento">Complemento</label>
+                                    <input type="text" id="complemento" name="complemento">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" id="bairro" name="bairro">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="cidade">Cidade</label>
+                                    <input type="text" id="cidade" name="cidade">
+                                </div>
+                                <div class="form-group">
+                                    <label for="estado">Estado</label>
+                                    <input type="text" id="estado" name="estado">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" id="cep" name="cep">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security Tab -->
+                        <div id="seguranca" class="tab-content">
+                            <div class="form-group">
+                                <label for="senha-atual">Senha Atual</label>
+                                <input type="password" id="senha-atual" name="senha-atual">
+                            </div>
+                            <div class="form-group">
+                                <label for="senha-nova">Nova Senha</label>
+                                <input type="password" id="senha-nova" name="senha-nova">
+                            </div>
+                            <div class="form-group">
+                                <label for="senha-confirma">Confirmar Senha</label>
+                                <input type="password" id="senha-confirma" name="senha-confirma">
+                            </div>
+                            <div class="alert-info">
+                                <i class="fas fa-info-circle"></i>
+                                Deixe os campos em branco se não deseja alterar sua senha
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="profile-actions">
+                        <button type="button" class="btn btn-primary" id="save-profile">Salvar Alterações</button>
+                        <button type="button" class="btn btn-secondary" onclick="window.location.href='acompanhe.html'">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Portal PSG Pernambuco. Todos os direitos reservados.</p>
+            <p>Programa de Gratuidade - SENAC PE</p>
+        </div>
+    </footer>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/privado.js"></script>
+</body>
+</html>

@@ -1,3 +1,41 @@
+/* ================= MENU HAMBÚRGUER RESPONSIVO ================= */
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Setup menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Fechar menu ao clicar em um link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar')) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+
+    // Se estiver na página de editais, renderiza o grid
+    const gridCursos = document.getElementById('gridCursos');
+    if (gridCursos) {
+        renderizarCursos(cursosPSG);
+        configurarFiltros();
+    }
+});
+
 /* ================= BANCO DE DADOS DE EDITAIS ================= */
 const cursosPSG = [
     {

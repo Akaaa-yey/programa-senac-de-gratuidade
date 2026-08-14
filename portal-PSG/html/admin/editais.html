@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lançar Edital - Painel Administrativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/admin.css">
+</head>
+<body>
+    <!-- Admin Navbar -->
+    <nav class="admin-navbar">
+        <div class="admin-navbar-container">
+            <div class="admin-navbar-brand">
+                <span class="admin-logo">
+                    <i class="fas fa-shield-alt"></i> Painel ADM
+                </span>
+            </div>
+            <div class="admin-nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="editais.html" active="active">Editais</a>
+                <a href="triagem.html">Triagem</a>
+                <a href="usuarios.html">Usuários</a>
+                <button class="btn-nav-logout" onclick="adminLogout()">Sair</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="admin-main-content">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-menu">
+                <div class="menu-section">
+                    <h3>Menu Principal</h3>
+                    <ul>
+                        <li><a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                        <li><a href="editais.html" class="active"><i class="fas fa-file-alt"></i> Editais</a></li>
+                        <li><a href="triagem.html"><i class="fas fa-search"></i> Triagem</a></li>
+                        <li><a href="usuarios.html"><i class="fas fa-users"></i> Usuários</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Editais Content -->
+        <div class="admin-container">
+            <div class="admin-header">
+                <h1>Gerenciar Editais</h1>
+                <button class="btn btn-primary" onclick="openNovoEditalModal()">
+                    <i class="fas fa-plus"></i> Novo Edital
+                </button>
+            </div>
+
+            <!-- Editais List -->
+            <section class="admin-section">
+                <h2>Editais Disponíveis</h2>
+                <div class="editais-list" id="editais-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Novo Edital Modal -->
+    <div id="novo-edital-modal" class="modal">
+        <div class="modal-content modal-lg">
+            <span class="close">&times;</span>
+            <h2>Lançar Novo Edital</h2>
+
+            <form id="novo-edital-form" class="admin-form">
+                <!-- Basic Info -->
+                <fieldset>
+                    <legend>Informações Básicas</legend>
+                    
+                    <div class="form-group">
+                        <label for="numero_edital">Número do Edital</label>
+                        <input type="text" id="numero_edital" name="numero_edital" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="titulo">Título</label>
+                        <input type="text" id="titulo" name="titulo" placeholder="ex: Programa de Gratuidade 2025" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição</label>
+                        <textarea id="descricao" name="descricao" rows="4" required></textarea>
+                    </div>
+                </fieldset>
+
+                <!-- Dates -->
+                <fieldset>
+                    <legend>Datas</legend>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="data_abertura">Data de Abertura</label>
+                            <input type="datetime-local" id="data_abertura" name="data_abertura" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="data_encerramento">Data de Encerramento</label>
+                            <input type="datetime-local" id="data_encerramento" name="data_encerramento" required>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Courses -->
+                <fieldset>
+                    <legend>Cursos Oferecidos</legend>
+                    
+                    <div class="form-group">
+                        <label for="cursos">Cursos (um por linha)</label>
+                        <textarea id="cursos" name="cursos" rows="5" placeholder="Análise de Dados&#10;Desenvolvimento Web&#10;Gestão de Projetos" required></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vagas_por_curso">Vagas por Curso</label>
+                            <input type="number" id="vagas_por_curso" name="vagas_por_curso" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="turno_oferta">Turno(s) Oferecido(s)</label>
+                            <select id="turno_oferta" name="turno_oferta" required>
+                                <option value="">Selecione...</option>
+                                <option value="manha">Manhã</option>
+                                <option value="tarde">Tarde</option>
+                                <option value="noite">Noite</option>
+                                <option value="todos">Todos os Turnos</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Requirements -->
+                <fieldset>
+                    <legend>Requisitos</legend>
+                    
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="requer_renda_baixa">
+                            Requer Comprovação de Renda Baixa
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="requer_diploma">
+                            Requer Diploma de Ensino Médio
+                        </label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="requer_experiencia">
+                            Requer Experiência Profissional
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="renda_maxima">Renda Máxima Permitida (R$)</label>
+                        <input type="number" id="renda_maxima" name="renda_maxima" step="0.01">
+                    </div>
+                </fieldset>
+
+                <!-- Documents Required -->
+                <fieldset>
+                    <legend>Documentos Obrigatórios</legend>
+                    
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="doc_rg" checked> RG / Identidade</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="doc_cpf" checked> CPF</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="doc_comprovante_renda" checked> Comprovante de Renda</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="doc_diploma"> Diploma / Certificado</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="doc_comprovante_endereco"> Comprovante de Endereço</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Lançar Edital</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('novo-edital-modal')">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/admin.js"></script>
+</body>
+</html>

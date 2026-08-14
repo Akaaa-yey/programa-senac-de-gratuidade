@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscreva-se - Portal PSG Pernambuco</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/privado.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <i class="fas fa-graduation-cap"></i> Portal PSG
+                </span>
+            </div>
+            <div class="nav-links">
+                <a href="acompanhe.html">Acompanhe</a>
+                <a href="inscreva-se.html" active="active">Inscreva-se</a>
+                <a href="perfil.html">Perfil</a>
+                <button class="btn-nav-login" onclick="logout()">Sair</button>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header Section -->
+            <section class="section-header">
+                <h1>Inscreva-se em um Edital</h1>
+                <p>Escolha o edital desejado e complete seu cadastro</p>
+            </section>
+
+            <!-- Editais Selection -->
+            <section class="inscricao-section">
+                <div class="editais-cards-grid" id="editais-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Registration Form (Modal) -->
+            <div id="registration-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modal-title">Inscrição - [Nome do Edital]</h2>
+                    
+                    <form id="registration-form" class="registration-form">
+                        <!-- Personal Info -->
+                        <fieldset>
+                            <legend>Informações Pessoais</legend>
+                            <div class="form-group">
+                                <label for="nome">Nome Completo</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" required>
+                            </div>
+                        </fieldset>
+
+                        <!-- Documents -->
+                        <fieldset>
+                            <legend>Documentos</legend>
+                            <div class="form-group">
+                                <label for="rg">RG (PDF ou Imagem)</label>
+                                <div class="file-upload">
+                                    <input type="file" id="rg" name="rg" accept=".pdf,.jpg,.jpeg,.png" required>
+                                    <label for="rg" class="file-label">
+                                        <i class="fas fa-cloud-upload-alt"></i> Clique para enviar RG
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="comprovante">Comprovante de Renda (PDF)</label>
+                                <div class="file-upload">
+                                    <input type="file" id="comprovante" name="comprovante" accept=".pdf" required>
+                                    <label for="comprovante" class="file-label">
+                                        <i class="fas fa-cloud-upload-alt"></i> Clique para enviar Comprovante
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="diploma">Diploma ou Certificado (PDF)</label>
+                                <div class="file-upload">
+                                    <input type="file" id="diploma" name="diploma" accept=".pdf,.jpg,.jpeg,.png" required>
+                                    <label for="diploma" class="file-label">
+                                        <i class="fas fa-cloud-upload-alt"></i> Clique para enviar Diploma
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Preferences -->
+                        <fieldset>
+                            <legend>Preferências</legend>
+                            <div class="form-group">
+                                <label for="turno">Preferência de Turno</label>
+                                <select id="turno" name="turno" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="manha">Manhã</option>
+                                    <option value="tarde">Tarde</option>
+                                    <option value="noite">Noite</option>
+                                </select>
+                            </div>
+                        </fieldset>
+
+                        <!-- Declarations -->
+                        <fieldset>
+                            <legend>Declarações</legend>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="termos" required>
+                                    Declaro que todas as informações são verdadeiras
+                                </label>
+                            </div>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="privacidade" required>
+                                    Concordo com a política de privacidade
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <button type="submit" class="btn btn-primary">Enviar Inscrição</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Portal PSG Pernambuco. Todos os direitos reservados.</p>
+            <p>Programa de Gratuidade - SENAC PE</p>
+        </div>
+    </footer>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/privado.js"></script>
+</body>
+</html>

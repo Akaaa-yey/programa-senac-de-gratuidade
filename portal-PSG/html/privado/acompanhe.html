@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acompanhe - Portal PSG Pernambuco</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/privado.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    <i class="fas fa-graduation-cap"></i> Portal PSG
+                </span>
+            </div>
+            <div class="nav-links">
+                <a href="acompanhe.html" active="active">Acompanhe</a>
+                <a href="inscreva-se.html">Inscreva-se</a>
+                <a href="perfil.html">Perfil</a>
+                <button class="btn-nav-login" onclick="logout()">Sair</button>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header Section -->
+            <section class="section-header">
+                <h1>Acompanhe Suas Candidaturas</h1>
+                <p id="user-name"></p>
+            </section>
+
+            <!-- Status Cards Grid -->
+            <section class="status-cards-container">
+                <div class="status-overview">
+                    <div class="status-card">
+                        <div class="status-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <div class="status-info">
+                            <h3>Total de Candidaturas</h3>
+                            <p class="status-number" id="total-candidaturas">0</p>
+                        </div>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-icon approved">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="status-info">
+                            <h3>Aprovadas</h3>
+                            <p class="status-number approved" id="aprovadas">0</p>
+                        </div>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-icon pending">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
+                        <div class="status-info">
+                            <h3>Pendentes</h3>
+                            <p class="status-number pending" id="pendentes">0</p>
+                        </div>
+                    </div>
+
+                    <div class="status-card">
+                        <div class="status-icon rejected">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="status-info">
+                            <h3>Recusadas</h3>
+                            <p class="status-number rejected" id="recusadas">0</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Applications List -->
+            <section class="applications-section">
+                <h2>Suas Candidaturas</h2>
+                
+                <div class="filter-bar">
+                    <select id="status-filter" class="filter-select">
+                        <option value="">Todos os Status</option>
+                        <option value="aprovada">Aprovada</option>
+                        <option value="pendente">Pendente</option>
+                        <option value="recusada">Recusada</option>
+                    </select>
+                </div>
+
+                <div class="applications-list" id="applications-list">
+                    <!-- Populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Portal PSG Pernambuco. Todos os direitos reservados.</p>
+            <p>Programa de Gratuidade - SENAC PE</p>
+        </div>
+    </footer>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/privado.js"></script>
+</body>
+</html>
