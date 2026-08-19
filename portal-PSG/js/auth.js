@@ -1,6 +1,6 @@
 /* ===== AUTHENTICATION SYSTEM ===== */
 
-// Mock authentication system (replace with Supabase auth)
+// Mock authentication system (compatível para testes no front-end)
 const AUTH = {
     // Check if user is authenticated
     isAuthenticated() {
@@ -29,16 +29,6 @@ const AUTH = {
     // Login candidato
     async loginCandidato(email, password) {
         try {
-            // Mock login - replace with Supabase auth
-            // In production: use supabase.auth.signInWithPassword()
-            
-            const response = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password, type: 'candidato' })
-            }).catch(() => null);
-
-            // Mock response for demo
             const user = {
                 id: 'user_' + Math.random().toString(36).substr(2, 9),
                 email: email,
@@ -62,22 +52,13 @@ const AUTH = {
     // Login admin
     async loginAdmin(email, password, otp) {
         try {
-            // Validate email is SENAC institutional
-            if (!email.endsWith('@pe.senac.br')) {
+            if (!email.toLowerCase().endsWith('@pe.senac.br')) {
                 return { 
                     success: false, 
                     error: 'Use seu email institucional SENAC (@pe.senac.br)' 
                 };
             }
 
-            // Mock login - replace with Supabase auth + 2FA
-            const response = await fetch('/api/auth/admin-login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password, otp })
-            }).catch(() => null);
-
-            // Mock response for demo
             if (otp.length === 6 && /^\d+$/.test(otp)) {
                 const user = {
                     id: 'admin_' + Math.random().toString(36).substr(2, 9),
@@ -94,7 +75,7 @@ const AUTH = {
 
                 return { success: true, user, token };
             } else {
-                return { success: false, error: 'Código 2FA inválido' };
+                return { success: false, error: 'Código 2FA inválido (deve conter 6 números)' };
             }
         } catch (error) {
             console.error('Admin login error:', error);
@@ -112,7 +93,6 @@ const AUTH = {
     // Register candidato
     async register(formData) {
         try {
-            // Mock registration - replace with Supabase auth
             const user = {
                 id: 'user_' + Math.random().toString(36).substr(2, 9),
                 email: formData.email,
@@ -141,31 +121,26 @@ function protectPage(requiredRole = 'candidato') {
     const user = AUTH.getUser();
     
     if (!isAuth) {
-        // Redirect to login
-        if (window.location.pathname.includes('/admin/')) {
-            window.location.href = '../../admin/login.html';
-        } else {
-            window.location.href = '../../login.html';
-        }
+        // Se estiver em uma subpasta (admin/ ou privado/), sobe um nível para ir ao login.html
+        window.location.href = '../login.html';
         return false;
     }
 
     if (requiredRole === 'admin' && user.role !== 'admin') {
-        window.location.href = '../../home.html';
+        window.location.href = '../home.html';
         return false;
     }
 
     return true;
 }
 
-// Logout function
+// Logout functions
 function logout() {
     if (confirm('Deseja realmente sair?')) {
         AUTH.logout();
     }
 }
 
-// Admin logout
 function adminLogout() {
     if (confirm('Deseja realmente sair do painel administrativo?')) {
         AUTH.logout();
@@ -176,7 +151,7 @@ function adminLogout() {
 function handleCandidatoLogin(event) {
     event.preventDefault();
 
-    const email = document.getElementById('email')?.value;
+    const email = document.getElementById('email')?.value.trim();
     const password = document.getElementById('password')?.value;
 
     if (!email || !password) {
@@ -186,7 +161,8 @@ function handleCandidatoLogin(event) {
 
     AUTH.loginCandidato(email, password).then(result => {
         if (result.success) {
-            window.location.href = '/html/privado/acompanhe.html';
+            // Estando em /html/login.html, entra diretamente na pasta privado/
+            window.location.href = 'privado/acompanhe.html';
         } else {
             showError(result.error || 'Erro ao fazer login');
         }
@@ -197,9 +173,9 @@ function handleCandidatoLogin(event) {
 function handleAdminLogin(event) {
     event.preventDefault();
 
-    const email = document.getElementById('email')?.value;
+    const email = document.getElementById('email')?.value.trim();
     const password = document.getElementById('password')?.value;
-    const otp = document.getElementById('otp')?.value;
+    const otp = document.getElementById('otp')?.value.trim();
 
     if (!email || !password || !otp) {
         showError('Por favor, preencha todos os campos');
@@ -208,7 +184,8 @@ function handleAdminLogin(event) {
 
     AUTH.loginAdmin(email, password, otp).then(result => {
         if (result.success) {
-            window.location.href = '/html/admin/dashboard.html';
+            // Estando em /html/admin/login.html, acessa o dashboard na mesma pasta
+            window.location.href = 'dashboard.html';
         } else {
             showError(result.error || 'Erro ao fazer login');
         }
@@ -217,6 +194,9 @@ function handleAdminLogin(event) {
 
 // Show error message
 function showError(message) {
+    const existingError = document.querySelector('.alert-error');
+    if (existingError) existingError.remove();
+
     const errorDiv = document.createElement('div');
     errorDiv.className = 'alert-error';
     errorDiv.innerHTML = `
@@ -244,26 +224,28 @@ function showSuccess(message) {
     setTimeout(() => successDiv.remove(), 5000);
 }
 
-// Toggle password visibility
+// Toggle password visibility & form listeners
 document.addEventListener('DOMContentLoaded', () => {
     const togglePasswords = document.querySelectorAll('.toggle-password');
     
     togglePasswords.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            const input = e.target.parentElement.querySelector('input');
+            const button = e.currentTarget;
+            const input = button.parentElement.querySelector('input');
+            const icon = button.querySelector('i') || button;
+
             if (input.type === 'password') {
                 input.type = 'text';
-                e.target.classList.remove('fa-eye');
-                e.target.classList.add('fa-eye-slash');
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
             } else {
                 input.type = 'password';
-                e.target.classList.remove('fa-eye-slash');
-                e.target.classList.add('fa-eye');
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
             }
         });
     });
 
-    // Attach login forms
     const candidatoLoginForm = document.getElementById('login-form');
     if (candidatoLoginForm) {
         candidatoLoginForm.addEventListener('submit', handleCandidatoLogin);
@@ -275,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Add alert styles
+// Estilos dinâmicos dos alertas
 const style = document.createElement('style');
 style.textContent = `
     .alert-error {
@@ -293,7 +275,7 @@ style.textContent = `
 
     .alert-success {
         position: fixed;
-        top: 100px;
+        top: 20px;
         right: 20px;
         background: #e6f9f0;
         border: 1px solid #86efac;
